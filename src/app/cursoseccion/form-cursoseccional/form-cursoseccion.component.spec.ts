@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FormCursoseccionalumnoComponent } from './form-cursoseccionalumno.component';
+import { FormCursoseccionalumnoComponent } from './form-cursoseccion.component';
 
 describe('FormCursoseccionalumnoComponent', () => {
   let component: FormCursoseccionalumnoComponent;

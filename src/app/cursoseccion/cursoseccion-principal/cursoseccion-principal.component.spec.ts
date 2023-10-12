@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CursoseccionalumnoPrincipalComponent } from './cursoseccionalumno-principal.component';
+import { CursoseccionalumnoPrincipalComponent } from './cursoseccion-principal.component';
 
 describe('CursoseccionalumnoPrincipalComponent', () => {
   let component: CursoseccionalumnoPrincipalComponent;

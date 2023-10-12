@@ -4,14 +4,14 @@ import { LoginPrincipalComponent } from './login/login-principal/login-principal
 import { PersonaPrincipalComponent } from './persona/persona-principal/persona-principal.component';
 import { CursoPrincipalComponent } from './curso/curso-principal/curso-principal.component';
 import { SeccionPrincipalComponent } from './seccion/seccion-principal/seccion-principal.component';
-import { CursoseccionalumnoPrincipalComponent } from './cursoseccionalumno/cursoseccionalumno-principal/cursoseccionalumno-principal.component';
+import { CursoseccionPrincipalComponent } from './cursoseccion/cursoseccion-principal/cursoseccion-principal.component';
 import { TipousuarioPrincipalComponent } from './tipousuario/tipousuario-principal/tipousuario-principal.component';
 import { UsuarioPrincipalComponent } from './usuario/usuario-principal/usuario-principal.component';
 import { AsistenciaPrincipalComponent } from './asistencia/asistencia-principal/asistencia-principal.component';
 import { FormPersonaComponent } from './persona/form-persona/form-persona.component';
 import { FormCursoComponent } from './curso/form-curso/form-curso.component';
 import { FormSeccionComponent } from './seccion/form-seccion/form-seccion.component';
-import { FormCursoseccionalumnoComponent } from './cursoseccionalumno/form-cursoseccionalumno/form-cursoseccionalumno.component';
+import { FormCursoseccionComponent } from './cursoseccion/form-cursoseccional/form-cursoseccion.component';
 import { FormTipousuarioComponent } from './tipousuario/form-tipousuario/form-tipousuario.component';
 import { FormUsuarioComponent } from './usuario/form-usuario/form-usuario.component';
 
@@ -60,15 +60,15 @@ const routes: Routes = [
   },
   {
     path:"horario",
-    component:CursoseccionalumnoPrincipalComponent
+    component:CursoseccionPrincipalComponent
   },
   {
     path:"horario/agregar",
-    component:FormCursoseccionalumnoComponent
+    component:FormCursoseccionComponent
   },
   {
     path:"horario/editar/:id",
-    component:FormCursoseccionalumnoComponent
+    component:FormCursoseccionComponent
   },
   {
     path:"tipousuario",

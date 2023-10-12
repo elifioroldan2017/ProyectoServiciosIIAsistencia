@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TablaCursoseccionalumnoComponent } from './tabla-cursoseccionalumno.component';
+import { TablaCursoseccionComponent } from './tabla-cursoseccion.component';
 
 describe('TablaCursoseccionalumnoComponent', () => {
-  let component: TablaCursoseccionalumnoComponent;
-  let fixture: ComponentFixture<TablaCursoseccionalumnoComponent>;
+  let component: TablaCursoseccionComponent;
+  let fixture: ComponentFixture<TablaCursoseccionComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [TablaCursoseccionalumnoComponent]
+      declarations: [TablaCursoseccionComponent]
     });
-    fixture = TestBed.createComponent(TablaCursoseccionalumnoComponent);
+    fixture = TestBed.createComponent(TablaCursoseccionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
