@@ -9,13 +9,13 @@ export class CursoService {
   private _cursos : Curso[]=[
     {
       idcurso:1,
-      nombrecurso:"Introduccion a la ALgoritmia",
+      nombrecurso:"Introduccion a la Algoritmia",
       numerocreditos:3,
       nombrecarrera:"Computacion en informatica"
     },
     {
       idcurso:2,
-      nombrecurso:"Algoritmo y escructuras de datos",
+      nombrecurso:"Algoritmo y estructuras de datos",
       numerocreditos:4,
       nombrecarrera:"Computacion en informatica"
     },
@@ -33,7 +33,7 @@ export class CursoService {
     },
     {
       idcurso:5,
-      nombrecurso:"Base de datos (Modelado y SQL Server Basic",
+      nombrecurso:"Base de datos (Modelado y SQL Server Basic)",
       numerocreditos:3,
       nombrecarrera:"Administracion y sistemas"
     },

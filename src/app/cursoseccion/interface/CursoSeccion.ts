@@ -1,4 +1,4 @@
-export interface CursoSeccionAlumno{
+export interface CursoSeccion{
     idcursoseccion:number,
     nombrecurso:string,
     nombreseccion:string,
