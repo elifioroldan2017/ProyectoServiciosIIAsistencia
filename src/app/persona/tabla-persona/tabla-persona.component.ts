@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PersonaService } from '../persona.service';
 
 @Component({
   selector: 'app-tabla-persona',
@@ -6,5 +7,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./tabla-persona.component.css']
 })
 export class TablaPersonaComponent {
+
+  constructor(private personaService:PersonaService){
+
+  }
+
+  editar(idpersona:number){
+
+  }
+
+  get personas(){
+    return this.personaService.personas
+  }
 
 }
