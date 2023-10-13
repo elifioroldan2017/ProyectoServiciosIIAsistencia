@@ -1,1 +1,18 @@
-<p>form-seccion works!</p>
+<h2 class="text-center text-dark">{{titulo}}</h2>
+<form>
+    <div class="mb-1">
+        <label>Nombre Sección</label>
+        <input type="text" class="form-control" />
+    </div>
+    <div>
+        <label>Numero Ciclos</label>
+        <input type="number" class="form-control" />
+    </div>
+
+    <div class="mt-2 mb-2">
+        <button type="submit" class="btn btn-success m-1">Guardar</button>
+        <button type="button" class="btn btn-danger" (click)="regresar()">Regresar</button>
+    </div>
+
+
+</form>
