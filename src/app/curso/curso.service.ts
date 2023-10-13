@@ -1,10 +1,23 @@
 import { Injectable } from '@angular/core';
 import { Curso } from './interface/Curso';
+import { Carrera } from './interface/Carrera';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CursoService {
+
+  private _carreras:Carrera[]=[
+    {
+      idcarrera:1,
+      nombrecarrera:"Computacion en informatica"
+    },
+    {
+      idcarrera:2,
+      nombrecarrera:"Administracion y sistemas"
+    }
+  ]
+
 
   private _cursos : Curso[]=[
     {
@@ -47,6 +60,10 @@ export class CursoService {
 
   get cursos():Curso[]{
     return [...this._cursos]
+  }  
+
+  get carreras():Carrera[]{
+    return [...this._carreras]
   }  
 
   constructor() { 

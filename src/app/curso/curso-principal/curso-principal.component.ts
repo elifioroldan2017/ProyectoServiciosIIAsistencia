@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-curso-principal',
@@ -6,5 +7,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./curso-principal.component.css']
 })
 export class CursoPrincipalComponent {
+
+  constructor(private router:Router){
+
+  }
+
+  nuevo(){
+    this.router.navigate(["curso/agregar"])
+
+  }
+
 
 }
