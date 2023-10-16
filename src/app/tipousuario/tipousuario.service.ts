@@ -53,6 +53,12 @@ export class TipousuarioService {
     },
     {
       idmenu:6,
+      nombremenu:"Usuario",
+      iconomenu:"",
+      urlmenu:""
+    },
+    {
+      idmenu:7,
       nombremenu:"Asistencia",
       iconomenu:"",
       urlmenu:""
