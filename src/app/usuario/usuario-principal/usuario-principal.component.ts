@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-usuario-principal',
@@ -6,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./usuario-principal.component.css']
 })
 export class UsuarioPrincipalComponent {
+
+  constructor(private routes:Router){
+
+  }
+  
+  agregar(){
+    this.routes.navigate(["usuario/agregar"])
+  }
 
 }

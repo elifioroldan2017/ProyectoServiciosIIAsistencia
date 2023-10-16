@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { UsuarioService } from '../usuario.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tabla-usuario',
@@ -8,7 +9,7 @@ import { UsuarioService } from '../usuario.service';
 })
 export class TablaUsuarioComponent {
 
-  constructor(private usuarioService:UsuarioService){
+  constructor(private usuarioService:UsuarioService,private routes:Router){
 
   }
 
@@ -17,7 +18,7 @@ export class TablaUsuarioComponent {
   }
 
    editar(idusuario:number){
-
+    this.routes.navigate(["usuario/editar/"+idusuario])
   }
 
 
