@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-persona-principal',
@@ -6,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./persona-principal.component.css']
 })
 export class PersonaPrincipalComponent {
+
+  constructor(private router:Router){
+
+  }
+
+  nuevo(){
+   this.router.navigate(["/persona/agregar"])
+  }
 
 }

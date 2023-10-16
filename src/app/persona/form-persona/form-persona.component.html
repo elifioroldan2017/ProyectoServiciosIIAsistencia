@@ -1,1 +1,62 @@
-<p>form-persona works!</p>
+<h2 class="text-center text-dark">{{titulo}}</h2>
+<form>
+    <div class="mb-1">
+        <label>Nombre</label>
+        <input type="text" class="form-control" />
+    </div>
+    <div>
+        <label>Apellido Paterno</label>
+        <input type="text" class="form-control" />
+    </div>
+
+    <div>
+        <label>Apellido Materno</label>
+        <input type="text" class="form-control" />
+    </div>
+
+    <div>
+        <label>Correo</label>
+        <input type="email" class="form-control" />
+    </div>
+
+    <div>
+        <label>Dirección</label>
+        <input type="text" class="form-control" />
+    </div>
+ 
+    <div>
+        <label>Tipo</label>
+        <select class="form-control">
+            <option value="">--Seleccione--</option>
+            <option *ngFor="let tipo of tipos">{{tipo.nombretipo}}</option>
+        </select>
+    </div>
+ 
+    <div>
+        <label>Sexo</label>
+        <select class="form-control">
+            <option value="">--Seleccione--</option>
+            <option *ngFor="let sexo of sexos">{{sexo.nombre}}</option>
+        </select>
+    </div>
+
+ 
+
+    <div>
+        <label>Fecha Nacimiento</label>
+        <input type="date" class="form-control" />
+    </div>
+
+    <div>
+        <label>Telefono celular</label>
+        <input type="text" class="form-control" />
+    </div>
+
+
+    <div class="mt-2 mb-2">
+        <button type="submit" class="btn btn-success m-1">Guardar</button>
+        <button type="button" class="btn btn-danger" (click)="regresar()">Regresar</button>
+    </div>
+
+
+</form>

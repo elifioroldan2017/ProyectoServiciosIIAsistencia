@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Persona } from './interface/Persona';
+import { Tipo } from './interface/Tipo';
+import { Sexo } from './interface/Sexo';
 
 @Injectable({
   providedIn: 'root'
@@ -59,6 +61,36 @@ export class PersonaService {
       tipo:"Profesor"
     }
   ]
+
+  private _tipos:Tipo[]=[
+    {
+      idtipo:1,
+      nombretipo:"Alumno"
+    },
+    {
+      idtipo:2,
+      nombretipo:"Profesor"
+    }
+  ]
+
+  private _sexos:Sexo[]=[
+    {
+      idsexo:1,
+      nombre:"Masculino"
+    },
+    {
+      idsexo:2,
+      nombre:"Femenino"
+    }
+  ]
+
+  get tipos(){
+    return [...this._tipos]
+  }
+
+  get sexos(){
+    return [...this._sexos]
+  }
 
   get personas():Persona[]{
     return [...this._personas]
