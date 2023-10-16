@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CursoSeccion } from '../interface/CursoSeccion';
 import { CursoseccionalumnoService } from '../cursoseccion.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tabla-cursoseccion',
@@ -9,7 +10,8 @@ import { CursoseccionalumnoService } from '../cursoseccion.service';
 })
 export class TablaCursoseccionComponent {
 
-  constructor(private cursoSeccionService:CursoseccionalumnoService){
+  constructor(private cursoSeccionService:CursoseccionalumnoService,
+    private router:Router){
 
   }
 
@@ -19,6 +21,7 @@ export class TablaCursoseccionComponent {
   }
 
   editar(idcursoseccion:number){
+    this.router.navigate(["horario/editar/"+idcursoseccion])
 
   }
 
