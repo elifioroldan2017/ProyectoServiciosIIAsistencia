@@ -1,4 +1,5 @@
-export interface Sexo{
-    idsexo:number,
-    nombre:string
-}
+export interface Sexo {
+    sexId: number
+    sexDescription: string
+    sexActive: string
+  }

@@ -28,7 +28,7 @@
         <label>Tipo</label>
         <select class="form-control">
             <option value="">--Seleccione--</option>
-            <option *ngFor="let tipo of tipos">{{tipo.nombretipo}}</option>
+            <option *ngFor="let tipo of tipos" [value]="tipo.typeId" >{{tipo.typeName}}</option>
         </select>
     </div>
  
@@ -36,7 +36,7 @@
         <label>Sexo</label>
         <select class="form-control">
             <option value="">--Seleccione--</option>
-            <option *ngFor="let sexo of sexos">{{sexo.nombre}}</option>
+            <option *ngFor="let sexo of sexos" [value]="sexo.sexId" >{{sexo.sexDescription}}</option>
         </select>
     </div>
 

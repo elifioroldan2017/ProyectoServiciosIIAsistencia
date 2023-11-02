@@ -13,7 +13,7 @@
         <label>Profesor</label>
         <select class="form-control">
             <option value="">--Seleccione--</option>
-            <option *ngFor="let persona of personas">{{persona.nombrecompleto}}</option>
+            <option *ngFor="let persona of personas" [value]="persona.personId">{{persona.personName+ ' '+persona.personLastname1+ ' '+persona.personLastname2}}</option>
         </select>
     </div>
 

@@ -12,7 +12,7 @@ import { LoginModule } from './login/login/login.module';
 import { TipousuarioModule } from './tipousuario/tipousuario.module';
 import { UsuarioModule } from './usuario/usuario.module';
 import { SeccionModule } from './seccion/seccion.module';
-
+import {HttpClientModule} from "@angular/common/http"
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,6 +21,7 @@ import { SeccionModule } from './seccion/seccion.module';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     CursoModule,
     PersonaModule,

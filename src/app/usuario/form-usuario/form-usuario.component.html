@@ -4,7 +4,7 @@
         <label>Nombre Persona</label>
         <select class="form-control">
             <option>--Seleccione--</option>
-            <option *ngFor="let pasajero of pasajeros">{{pasajero.nombrecompleto}}</option>
+            <option *ngFor="let persona of personas" [value]="persona.personId">{{persona.personName+ ' '+persona.personLastname1+ ' '+persona.personLastname2}}</option>
         </select>
     </div>
     <div>

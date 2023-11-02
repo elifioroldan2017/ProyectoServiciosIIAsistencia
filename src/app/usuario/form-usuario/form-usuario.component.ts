@@ -21,7 +21,7 @@ export class FormUsuarioComponent {
     return this.tipousuarioService.tipousuarios
   }
 
-  get pasajeros(){
+  get personas(){
     return this.personaService.personas
   }
   

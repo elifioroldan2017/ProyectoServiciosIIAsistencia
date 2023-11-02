@@ -1,4 +1,6 @@
-export interface Tipo{
-    idtipo:number,
-    nombretipo:string
-}
+export interface Tipo {
+    typeId: number
+    typeName: string
+    typeDescription: string
+    typeActive: string
+  }
