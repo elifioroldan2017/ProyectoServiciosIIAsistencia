@@ -1,5 +1,7 @@
-export interface Seccion{
-    idseccion:number,
-    nombreseccion:string,
-    numerociclo:number
-}
+export interface Seccion {
+    sectionId: number
+    sectionName: string
+    sectionPeriod: number
+    sectionActive: any
+  }
+  

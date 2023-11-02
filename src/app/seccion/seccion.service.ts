@@ -1,47 +1,37 @@
 import { Injectable } from '@angular/core';
 import { Seccion } from './interface/Seccion';
+import { HttpClient } from '@angular/common/http';
+import urlbase from '../constant';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SeccionService {
-  private _seccion:Seccion[]=[
-    {
-      idseccion:1,
-      nombreseccion:"T1NM",
-      numerociclo:1
-    },
-    {
-      idseccion:2,
-      nombreseccion:"T1GM",
-      numerociclo:1
-    },
-    {
-      idseccion:3,
-      nombreseccion:"T1ZM",
-      numerociclo:1
-    },
-    {
-      idseccion:4,
-      nombreseccion:"T2PM",
-      numerociclo:2
-    },
-    {
-      idseccion:5,
-      nombreseccion:"T2CM",
-      numerociclo:2
-    },
-    {
-      idseccion:6,
-      nombreseccion:"T2AM",
-      numerociclo:2
-    }
-
-  ]
+  private _seccion:Seccion[]=[]
 
   get secciones(){
     return [...this._seccion]
   }
 
-  constructor() { }
+  listarSeccion(){
+      this.http.get<Seccion[]>(urlbase+"/section").subscribe(res=>{
+        this._seccion=res;
+      })
+  }
+
+  insertarSeccion(oseccion:Seccion){
+    return this.http.post<Seccion>(urlbase+"/section/",oseccion)
+  }
+
+  recuperarSeccion(id:number){
+    return this.http.get<Seccion>(urlbase+"/section/"+id)
+  }
+
+  actualizarSeccion(oseccion:Seccion){
+    return this.http.put<Seccion>(urlbase+"/section/",oseccion)
+  }
+
+  constructor(private http:HttpClient) {
+    this.listarSeccion();
+   }
 }
