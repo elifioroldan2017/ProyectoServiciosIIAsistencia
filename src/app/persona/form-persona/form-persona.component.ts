@@ -38,7 +38,17 @@ export class FormPersonaComponent {
   }
 
   guardar(){
-    
+    if(this.persona.personId==0){
+      this.personaService.insertarPersona(this.persona).subscribe(res=>{
+        this.router.navigate(["/persona"])
+        this.personaService.listarPersonas();
+      })
+    }else{
+      this.personaService.actualizarPersona(this.persona).subscribe(res=>{
+        this.router.navigate(["/persona"])
+        this.personaService.listarPersonas();
+      })
+    }
   }
 
   regresar(){

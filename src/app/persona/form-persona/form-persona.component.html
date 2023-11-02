@@ -35,7 +35,7 @@
     <div>
         <label>Sexo</label>
         <select class="form-control" name="sexId" [(ngModel)]="persona.sexId">
-            <option value="">--Seleccione--</option>
+            <option value="0">--Seleccione--</option>
             <option *ngFor="let sexo of sexos" [value]="sexo.sexId" >{{sexo.sexDescription}}</option>
         </select>
     </div>
