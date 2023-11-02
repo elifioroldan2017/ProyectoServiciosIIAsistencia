@@ -1,17 +1,17 @@
 <h2 class="text-center text-dark">{{titulo}}</h2>
-<form>
+<form (ngSubmit)="guardar()">
     <div class="mb-1">
         <label>Nombre Curso</label>
-        <input type="text" class="form-control" />
+        <input type="text" name="courseName" [(ngModel)]="curso.courseName" class="form-control" />
     </div>
     <div>
         <label>Numero Creditos</label>
-        <input type="number" class="form-control" />
+        <input type="number" name="courseCredits" [(ngModel)]="curso.courseCredits" class="form-control" />
     </div>
     <div>
         <label>Carrera</label>
-        <select class="form-control">
-            <option value="">--Seleccione--</option>
+        <select class="form-control" name="careerId" [(ngModel)]="curso.careerId" >
+            <option value="0">--Seleccione--</option>
             <option *ngFor="let carrera of carreras" [value]="carrera.careerId" >{{carrera.careerName}}</option>
         </select>
     </div>

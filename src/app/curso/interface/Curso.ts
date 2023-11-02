@@ -6,5 +6,5 @@ export interface Curso {
     courseCredits: string
     careerId: number
     careerActive: string
-    objCareer: Carrera
+    objCareer?: Carrera
   }

@@ -42,6 +42,18 @@ export class CursoService {
    }) 
   }
 
+  insertarCurso(curso:Curso){
+     return this._http.post<Curso>(urlbase+"/course/",curso)
+  }
+
+  actualizarCurso(curso:Curso){
+    return this._http.put<Curso>(urlbase+"/course/",curso)
+  }
+
+  recuperarCurso(id:number){
+    return this._http.get<Curso>(urlbase+"/course/"+id);
+  }
+
   constructor(private _http:HttpClient) { 
     this.listarCursos();
   }
