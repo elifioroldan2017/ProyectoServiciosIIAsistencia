@@ -1,20 +1,26 @@
 <h2 class="text-center text-dark">{{titulo}}</h2>
-<form>
-    <div class="mb-1">
+<form (ngSubmit)="guardar()">
+    <div class="mb-1" *ngIf="usuario.userId==0" >
         <label>Nombre Persona</label>
-        <select class="form-control">
-            <option>--Seleccione--</option>
+        <select [(ngModel)]="usuario.personId" name="personId" class="form-control">
+            <option value="0">--Seleccione--</option>
             <option *ngFor="let persona of personas" [value]="persona.personId">{{persona.personName+ ' '+persona.personLastname1+ ' '+persona.personLastname2}}</option>
         </select>
     </div>
     <div>
         <label>Nombre Usuario</label>
-        <input type="text" class="form-control" />
+        <input [(ngModel)]="usuario.user" name="user" type="text" class="form-control" />
     </div>
+
+    <div *ngIf="usuario.userId==0" >
+        <label>Contraseña</label>
+        <input [(ngModel)]="usuario.password" name="password" type="password" class="form-control" />
+    </div>
+
     <div>
         <label>Tipo Usuario</label>
-        <select class="form-control">
-            <option>--Seleccione--</option>
+        <select [(ngModel)]="usuario.usertype" name="usertype" class="form-control">
+            <option value="0">--Seleccione--</option>
             <option [value]="tipousuario.userTypeId" *ngFor="let tipousuario of tipousuarios">{{tipousuario.name}}</option>
         </select>
     </div>
