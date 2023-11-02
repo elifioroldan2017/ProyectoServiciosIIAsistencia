@@ -12,7 +12,7 @@
         <label>Carrera</label>
         <select class="form-control">
             <option value="">--Seleccione--</option>
-            <option *ngFor="let carrera of carreras">{{carrera.nombrecarrera}}</option>
+            <option *ngFor="let carrera of carreras" [value]="carrera.careerId" >{{carrera.careerName}}</option>
         </select>
     </div>
 

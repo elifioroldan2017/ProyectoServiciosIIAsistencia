@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Curso } from './interface/Curso';
 import { Carrera } from './interface/Carrera';
+import { HttpClient } from '@angular/common/http';
+import urlbase from '../constant';
 
 @Injectable({
   providedIn: 'root'
@@ -9,54 +11,22 @@ export class CursoService {
 
   private _carreras:Carrera[]=[
     {
-      idcarrera:1,
-      nombrecarrera:"Computacion en informatica"
+     careerId:1,
+     careerName:"Computacion e informatica",
+     careerDescription:"Computacion e informatica",
+     careerActive:"1"
     },
     {
-      idcarrera:2,
-      nombrecarrera:"Administracion y sistemas"
+      careerId:2,
+      careerName:"Administracion y sistemas",
+      careerDescription:"Administracion y sistemas",
+      careerActive:"1"
+
     }
   ]
 
 
-  private _cursos : Curso[]=[
-    {
-      idcurso:1,
-      nombrecurso:"Introduccion a la Algoritmia",
-      numerocreditos:3,
-      nombrecarrera:"Computacion en informatica"
-    },
-    {
-      idcurso:2,
-      nombrecurso:"Algoritmo y estructuras de datos",
-      numerocreditos:4,
-      nombrecarrera:"Computacion en informatica"
-    },
-    {
-      idcurso:3,
-      nombrecurso:"Lenguaje de Programación I",
-      numerocreditos:4,
-      nombrecarrera:"Computacion en informatica"
-    },
-    {
-      idcurso:4,
-      nombrecurso:"Modelado de Procesos de Negocio",
-      numerocreditos:3,
-      nombrecarrera:"Administracion y sistemas"
-    },
-    {
-      idcurso:5,
-      nombrecurso:"Base de datos (Modelado y SQL Server Basic)",
-      numerocreditos:3,
-      nombrecarrera:"Administracion y sistemas"
-    },
-    {
-      idcurso:6,
-      nombrecurso:"Desarrollo de sistemas empresariales (VB.Net)",
-      numerocreditos:4,
-      nombrecarrera:"Administracion y sistemas"
-    }
-  ]
+  private _cursos : Curso[]=[ ]
 
   get cursos():Curso[]{
     return [...this._cursos]
@@ -66,7 +36,13 @@ export class CursoService {
     return [...this._carreras]
   }  
 
-  constructor() { 
+  listarCursos(){
+   this._http.get<Curso[]>(urlbase+"/course").subscribe(res=>{
+    this._cursos=res;
+   }) 
+  }
 
+  constructor(private _http:HttpClient) { 
+    this.listarCursos();
   }
 }

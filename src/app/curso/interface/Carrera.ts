@@ -1,4 +1,6 @@
-export interface Carrera{
-    idcarrera:number,
-    nombrecarrera:string
-}
+export interface Carrera {
+    careerId: number
+    careerName: string
+    careerDescription: string
+    careerActive: string
+  }

@@ -5,7 +5,7 @@
         <label>Curso</label>
         <select class="form-control">
             <option value="">--Seleccione--</option>
-            <option *ngFor="let curso of cursos">{{curso.nombrecurso}}</option>
+            <option *ngFor="let curso of cursos"  [value]="curso.courseId" >{{curso.courseName}}</option>
         </select>
     </div>
 
