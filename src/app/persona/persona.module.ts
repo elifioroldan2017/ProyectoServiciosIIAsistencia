@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { PersonaPrincipalComponent } from './persona-principal/persona-principal.component';
 import { TablaPersonaComponent } from './tabla-persona/tabla-persona.component';
 import { FormPersonaComponent } from './form-persona/form-persona.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -13,6 +14,7 @@ import { FormPersonaComponent } from './form-persona/form-persona.component';
     FormPersonaComponent
   ],
   imports: [
+    FormsModule,
     CommonModule
   ]
 })

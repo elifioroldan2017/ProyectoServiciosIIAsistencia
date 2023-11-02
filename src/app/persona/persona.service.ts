@@ -57,6 +57,20 @@ export class PersonaService {
     })
   }
 
+  obtenerPersona(id:number){
+    return this._http.get<Persona>(urlbase+"/person/"+id);
+  }
+
+
+  insertarPersona(opersona:Persona){
+    return this._http.post<Persona>(urlbase+"/person/",opersona)
+  }
+
+  actualizarPersona(opersona:Persona){
+    return this._http.put<Persona>(urlbase+"/person/",opersona)
+  }
+
+
   constructor(private _http:HttpClient) { 
     this.listarTipoPersona();
     this.listarPersonas();

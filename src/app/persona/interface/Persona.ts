@@ -14,6 +14,6 @@ export interface Persona {
     personPhone: string
     personActive: string
     personHasUser: boolean
-    objSex: Sexo
-    objType: Tipo
+    objSex?: Sexo
+    objType?: Tipo
   }
