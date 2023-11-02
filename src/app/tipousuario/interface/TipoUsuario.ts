@@ -1,5 +1,5 @@
-export interface Tipousuario{
-    idtipousuario:number,
-    nombretipousuario:string,
-    descripciontipousuario:string
-}
+export interface Tipousuario {
+    userTypeId: number
+    name: string
+    active: string
+  }

@@ -1,13 +1,10 @@
 <h2 class="text-center text-dark">{{titulo}}</h2>
-<form>
+<form (ngModel)="guardar()">
     <div class="mb-1">
         <label>Nombre Tipo Usuario</label>
-        <input type="text" class="form-control" />
+        <input name="name" [(ngModel)]="tipousuario.name" type="text" class="form-control" />
     </div>
-    <div>
-        <label>Descripción Tipo Usuario</label>
-        <input type="text" class="form-control" />
-    </div>
+
 
     <div class="mt-2 mb-2">
         <label>Seleccione las páginas que podrá visualizar</label>

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PersonaService } from 'src/app/persona/persona.service';
+import { Tipousuario } from 'src/app/tipousuario/interface/TipoUsuario';
 import { TipousuarioService } from 'src/app/tipousuario/tipousuario.service';
 
 @Component({
@@ -10,11 +11,13 @@ import { TipousuarioService } from 'src/app/tipousuario/tipousuario.service';
 })
 export class FormUsuarioComponent {
   titulo:string=""
-  
   constructor(private tipousuarioService:TipousuarioService,private personaService:PersonaService,private routes:Router ,private activateRoute:ActivatedRoute){
       var param=this.activateRoute.snapshot.params["id"]
       if(param==undefined) this.titulo="Nuevo Usuario"
-      else this.titulo="Editar Usuario"
+      else { 
+        this.titulo="Editar Usuario"
+       
+      }
   }
 
   get tipousuarios(){
@@ -28,4 +31,7 @@ export class FormUsuarioComponent {
   regresar(){
     this.routes.navigate(["usuario"])
   }
+
+
+
 }

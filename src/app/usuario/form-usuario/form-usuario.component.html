@@ -15,7 +15,7 @@
         <label>Tipo Usuario</label>
         <select class="form-control">
             <option>--Seleccione--</option>
-            <option *ngFor="let tipousuario of tipousuarios">{{tipousuario.nombretipousuario}}</option>
+            <option [value]="tipousuario.userTypeId" *ngFor="let tipousuario of tipousuarios">{{tipousuario.name}}</option>
         </select>
     </div>
 
