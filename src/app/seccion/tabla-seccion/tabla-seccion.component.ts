@@ -23,5 +23,11 @@ export class TablaSeccionComponent {
 
   }
 
+  eliminar(idseccion:number){
+    this.seccionService.eliminarSeccion(idseccion).subscribe(res=>{
+      this.seccionService.listarSeccion();
+    })
+  }
+
 
 }

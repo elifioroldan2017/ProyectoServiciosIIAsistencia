@@ -27,6 +27,10 @@ export class SeccionService {
     return this.http.get<Seccion>(urlbase+"/section/"+id)
   }
 
+  eliminarSeccion(id:number){
+    return this.http.delete(urlbase+"/section/"+id)
+  }
+
   actualizarSeccion(oseccion:Seccion){
     return this.http.put<Seccion>(urlbase+"/section/",oseccion)
   }
