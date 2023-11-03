@@ -45,6 +45,10 @@ export class TipousuarioService {
     return  this._http.put<Tipousuario>(urlbase+"/usertypes/",otipousuario);
   }
 
+  eliminarTipoUsuario(id:number){
+    return this._http.delete(urlbase+"/usertypes/"+id);
+  }
+
 
   constructor(private _http:HttpClient) { 
     this.listarTipoUsuarios()

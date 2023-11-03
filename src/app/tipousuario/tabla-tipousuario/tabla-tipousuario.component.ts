@@ -19,6 +19,14 @@ export class TablaTipousuarioComponent {
 
   }
 
+  eliminar(idtipousuario:number){
+   
+    this.tipoUsuarioService.eliminarTipoUsuario(idtipousuario).subscribe(res=>{
+      this.tipoUsuarioService.listarTipoUsuarios()
+    })
+
+  }
+
   get tipousuarios(){
     return this.tipoUsuarioService.tipousuarios
   }
