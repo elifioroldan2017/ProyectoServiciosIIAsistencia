@@ -23,6 +23,10 @@ export class UsuarioService {
     return this._http.get<Usuario>(urlbase+"/user/"+id)
    }
 
+   eliminarUsuario(id:number){
+    return this._http.get(urlbase+"/user/delete/"+id)
+   }
+
    insertarUsuario(ousuario:Usuario){
     return this._http.post<Usuario>(urlbase+"/user/",ousuario)
    }

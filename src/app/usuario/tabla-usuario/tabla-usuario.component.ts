@@ -21,5 +21,11 @@ export class TablaUsuarioComponent {
     this.routes.navigate(["usuario/editar/"+idusuario])
   }
 
+  eliminar(idusuario:number){
+    this.usuarioService.eliminarUsuario(idusuario).subscribe(res=>{
+      this.usuarioService.listarUsuarios();
+    })
+  }
+
 
 }
