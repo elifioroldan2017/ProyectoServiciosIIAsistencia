@@ -1,6 +1,7 @@
-export interface Menu{
-    idmenu:number,
-    nombremenu:string,
-    iconomenu:string,
-    urlmenu:string
-}
+export interface Menu {
+    menuId: number
+    menuOptionName: string
+    menuIconName: any
+    menuUrlRedirect: any
+    menuActive: string
+  }

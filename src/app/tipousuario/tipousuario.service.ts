@@ -11,51 +11,7 @@ export class TipousuarioService {
 
   private _tipousuarios: Tipousuario[] = []
 
-   private _menus: Menu[]= [
-    {
-      idmenu:1,
-      nombremenu:"Persona",
-      iconomenu:"",
-      urlmenu:""
-    },
-    {
-      idmenu:2,
-      nombremenu:"Curso",
-      iconomenu:"",
-      urlmenu:""
-    },
-    {
-      idmenu:3,
-      nombremenu:"Seccion",
-      iconomenu:"",
-      urlmenu:""
-    },
-    {
-      idmenu:4,
-      nombremenu:"Horario",
-      iconomenu:"",
-      urlmenu:""
-    },
-    {
-      idmenu:5,
-      nombremenu:"Tipo Usuario",
-      iconomenu:"",
-      urlmenu:""
-    },
-    {
-      idmenu:6,
-      nombremenu:"Usuario",
-      iconomenu:"",
-      urlmenu:""
-    },
-    {
-      idmenu:7,
-      nombremenu:"Asistencia",
-      iconomenu:"",
-      urlmenu:""
-    }
-
-   ]
+   private _menus: Menu[]= []
 
    get tipousuarios():Tipousuario[]{
     return [...this._tipousuarios];
@@ -63,6 +19,12 @@ export class TipousuarioService {
 
   get menus():Menu[]{
    return [...this._menus]
+  }
+
+  listarMenus(){
+    this._http.get<Menu[]>(urlbase+"/menu").subscribe(res=>{
+      this._menus=res;
+    })
   }
 
   listarTipoUsuarios(){
@@ -86,5 +48,6 @@ export class TipousuarioService {
 
   constructor(private _http:HttpClient) { 
     this.listarTipoUsuarios()
+    this.listarMenus();
   }
 }
