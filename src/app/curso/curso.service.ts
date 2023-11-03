@@ -54,6 +54,10 @@ export class CursoService {
     return this._http.get<Curso>(urlbase+"/course/"+id);
   }
 
+  eliminarCurso(id:number){
+    return this._http.delete(urlbase+"/course/"+id);
+  }
+
   constructor(private _http:HttpClient) { 
     this.listarCursos();
   }

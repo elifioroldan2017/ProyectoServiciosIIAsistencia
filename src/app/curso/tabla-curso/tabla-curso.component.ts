@@ -22,4 +22,10 @@ export class TablaCursoComponent {
     this.router.navigate(["curso/editar/"+idcurso])
   }
 
+  eliminar(idcurso:number){
+    this.cursoservice.eliminarCurso(idcurso).subscribe(res=>{
+      this.cursoservice.listarCursos()
+    })
+  }
+
 }
