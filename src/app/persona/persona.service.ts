@@ -15,23 +15,7 @@ export class PersonaService {
 
   private _tipos:Tipo[]=[]
 
-  private _sexos:Sexo[]=[
-    {
-      sexId:1,
-      sexDescription:"Masculino",
-      sexActive:"1"
-    },
-    {
-      sexId:2,
-      sexDescription:"Femenino",
-      sexActive:"1"
-    },
-    {
-      sexId:3,
-      sexDescription:"Otro",
-      sexActive:"1"
-    }
-  ]
+  private _sexos:Sexo[]=[ ]
 
   get tipos(){
     return [...this._tipos]
@@ -57,6 +41,12 @@ export class PersonaService {
     })
   }
 
+  listarSexo(){
+    this._http.get<Sexo[]>(urlbase+"/sex").subscribe(res=>{
+      this._sexos=res;
+    })
+  }
+
   obtenerPersona(id:number){
     return this._http.get<Persona>(urlbase+"/person/"+id);
   }
@@ -74,5 +64,6 @@ export class PersonaService {
   constructor(private _http:HttpClient) { 
     this.listarTipoPersona();
     this.listarPersonas();
+    this.listarSexo();
   }
 }
