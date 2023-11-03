@@ -51,6 +51,11 @@ export class PersonaService {
     return this._http.get<Persona>(urlbase+"/person/"+id);
   }
 
+  
+  eliminarPersona(id:number){
+    return this._http.get(urlbase+"/person/delete/"+id);
+  }
+
 
   insertarPersona(opersona:Persona){
     return this._http.post<Persona>(urlbase+"/person/",opersona)
@@ -59,6 +64,8 @@ export class PersonaService {
   actualizarPersona(opersona:Persona){
     return this._http.put<Persona>(urlbase+"/person/",opersona)
   }
+
+
 
 
   constructor(private _http:HttpClient) { 

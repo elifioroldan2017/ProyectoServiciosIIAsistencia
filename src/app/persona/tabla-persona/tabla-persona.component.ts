@@ -18,6 +18,12 @@ export class TablaPersonaComponent {
 
   }
 
+  eliminar(idpersona:number){
+    this.personaService.eliminarPersona(idpersona).subscribe(res=>{
+      this.personaService.listarPersonas()
+    })
+  }
+
   get personas(){
     return this.personaService.personas
   }
