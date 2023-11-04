@@ -53,7 +53,7 @@ export class PersonaService {
 
   
   eliminarPersona(id:number){
-    return this._http.get(urlbase+"/person/delete/"+id);
+    return this._http.delete(urlbase+"/person/"+id);
   }
 
 
