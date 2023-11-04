@@ -5,6 +5,7 @@ import { Tipousuario } from 'src/app/tipousuario/interface/TipoUsuario';
 import { TipousuarioService } from 'src/app/tipousuario/tipousuario.service';
 import { Usuario } from '../interface/Usuario';
 import { UsuarioService } from '../usuario.service';
+import { Persona } from 'src/app/persona/interface/Persona';
 
 @Component({
   selector: 'app-form-usuario',
@@ -13,6 +14,7 @@ import { UsuarioService } from '../usuario.service';
 })
 export class FormUsuarioComponent {
   titulo:string=""
+  personasList:Persona[]=[]
   usuario:Usuario={
     userId: 0,
     personId: 0,
@@ -24,7 +26,10 @@ export class FormUsuarioComponent {
   constructor(private tipousuarioService:TipousuarioService,private personaService:PersonaService,private routes:Router ,private activateRoute:ActivatedRoute,
     private usuarioService:UsuarioService){
       var param=this.activateRoute.snapshot.params["id"]
-      if(param==undefined) this.titulo="Nuevo Usuario"
+      if(param==undefined) {
+        this.titulo="Nuevo Usuario"
+        this.listarPersonasSinUsuario()
+      }
       else { 
         this.titulo="Editar Usuario"
         this.usuarioService.recuperarUsuario(Number(param)).subscribe(res=>{
@@ -37,8 +42,10 @@ export class FormUsuarioComponent {
     return this.tipousuarioService.tipousuarios
   }
 
-  get personas(){
-    return this.personaService.personas
+  listarPersonasSinUsuario(){
+    this.personaService.listarPersonasSinUsuario().subscribe(res=>{
+      this.personasList=res;
+    })
   }
   
   regresar(){

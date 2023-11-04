@@ -65,6 +65,10 @@ export class PersonaService {
     return this._http.put<Persona>(urlbase+"/person/",opersona)
   }
 
+  listarPersonasSinUsuario(){
+    return this._http.get<Persona[]>(urlbase+"/person/withoutuser");
+  }
+
 
 
 
