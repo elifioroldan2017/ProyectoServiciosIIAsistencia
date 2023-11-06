@@ -4,6 +4,7 @@ import { CursoseccionPrincipalComponent } from './cursoseccion-principal/cursose
 import { TablaCursoseccionComponent } from './tabla-cursoseccion/tabla-cursoseccion.component';
 import { FormCursoseccionComponent } from './form-cursoseccional/form-cursoseccion.component';
 import { FormsModule } from '@angular/forms';
+import { ModalAlumnoComponent } from './modal-alumno/modal-alumno.component';
 
 
 
@@ -11,7 +12,8 @@ import { FormsModule } from '@angular/forms';
   declarations: [
     CursoseccionPrincipalComponent,
     TablaCursoseccionComponent,
-    FormCursoseccionComponent
+    FormCursoseccionComponent,
+    ModalAlumnoComponent
   ],
   imports: [
     FormsModule,

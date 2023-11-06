@@ -14,7 +14,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class FormCursoseccionComponent {
   titulo:string=""
 
-  constructor(private cursoSeccionService:CursoseccionalumnoService,
+  constructor(private horarioService:CursoseccionalumnoService,
     private cursoService:CursoService,private seccionService:SeccionService,
     private personaService:PersonaService,private router:Router,
     private activateRoute:ActivatedRoute){
@@ -28,8 +28,8 @@ export class FormCursoseccionComponent {
     return this.cursoService.cursos
   }
 
-  get personas(){
-    return this.personaService.personas
+  get profesores(){
+    return this.horarioService.profesores
   }
 
   regresar(){
@@ -39,5 +39,7 @@ export class FormCursoseccionComponent {
   get secciones(){
     return this.seccionService.secciones
   }
+
+
 
 }

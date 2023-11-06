@@ -13,7 +13,7 @@
         <label>Profesor</label>
         <select class="form-control">
             <option value="">--Seleccione--</option>
-            <option *ngFor="let persona of personas" [value]="persona.personId">{{persona.personName+ ' '+persona.personLastname1+ ' '+persona.personLastname2}}</option>
+            <option *ngFor="let profesor of profesores" [value]="profesor.personId">{{profesor.personName+ ' '+profesor.personLastname1+ ' '+profesor.personLastname2}}</option>
         </select>
     </div>
 
@@ -38,7 +38,7 @@
 
     <fieldset class="mt-3 mb-3">
         <legend>Sección para agregar Alumnos</legend>
-        <button class="btn btn-secondary">Agregar Alumnos</button>
+        <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Agregar Alumnos</button>
 
         <table class="table">
             <thead>
@@ -48,18 +48,20 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-
-                </tr>
+              
             </tbody>
         </table>
     </fieldset>
 
 
-    <div class="mt-2 mb-2">
+    <div class="mt-5 mb-2">
         <button type="submit" class="btn btn-success m-1">Guardar</button>
         <button type="button" class="btn btn-danger" (click)="regresar()">Regresar</button>
     </div>
 
 
 </form>
+
+<app-modal-alumno></app-modal-alumno>
+
+

@@ -1,10 +1,15 @@
 import { Injectable } from '@angular/core';
 import { CursoSeccion } from './interface/CursoSeccion';
+import { Persona } from '../persona/interface/Persona';
+import { HttpClient } from '@angular/common/http';
+import urlbase from '../constant';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CursoseccionalumnoService {
+  private _alumnos: Persona[] =[]
+  private _profesores: Persona[] =[]
 
   private _horarios:CursoSeccion[]=[
     {
@@ -25,5 +30,28 @@ export class CursoseccionalumnoService {
     return [...this._horarios]
   }
 
-  constructor() { }
+  get alumnos():Persona[]{
+    return [...this._alumnos]
+  }
+
+  get profesores():Persona[]{
+    return [...this._profesores]
+  }
+
+  listarAlumnos(){
+    this._http.get<Persona[]>(urlbase+"/person/persontype/2").subscribe(res=>{
+      this._alumnos=res;
+    })
+  }
+
+  listarProfesores(){
+    this._http.get<Persona[]>(urlbase+"/person/persontype/1").subscribe(res=>{
+      this._profesores=res;
+    })
+  }
+
+  constructor(private _http:HttpClient) { 
+    this.listarAlumnos()
+    this.listarProfesores()
+  }
 }
