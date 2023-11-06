@@ -3,6 +3,7 @@ import { Curso } from './interface/Curso';
 import { Carrera } from './interface/Carrera';
 import { HttpClient } from '@angular/common/http';
 import urlbase from '../constant';
+import Swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root'
@@ -53,7 +54,7 @@ export class CursoService {
   }
 
   eliminarCurso(id:number){
-    return this._http.delete(urlbase+"/course/"+id);
+    return this._http.delete(urlbase+"/course/delete/"+id);
   }
 
   constructor(private _http:HttpClient) { 
