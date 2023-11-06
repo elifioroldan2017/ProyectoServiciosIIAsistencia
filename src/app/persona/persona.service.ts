@@ -41,6 +41,12 @@ export class PersonaService {
     })
   }
 
+  buscarPersonas(nombre:string){
+    this._http.get<Persona[]>(urlbase+"/person/personname/"+nombre).subscribe(res=>{
+      this._personas=res;
+    })
+  }
+
   listarSexo(){
     this._http.get<Sexo[]>(urlbase+"/sex").subscribe(res=>{
       this._sexos=res;

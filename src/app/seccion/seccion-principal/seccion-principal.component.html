@@ -2,4 +2,12 @@
 <div class="d-flex justify-content-center">
     <button class="btn btn-dark" (click)="nuevo()">Nuevo</button>
 </div>
+<form (ngSubmit)="buscarSeccion()" >
+    <div class="input-group mb-3 mt-3">
+        <input type="text" class="form-control"
+        [(ngModel)]="nombreSeccion"  name="nombreSeccion"
+        placeholder="Ingrese nombre de la Sección" aria-label="Nombre Sección" aria-describedby="button-addon2">
+        <button class="btn btn-outline-dark" type="submit" id="button-addon2">Buscar</button>
+     </div>
+</form>
 <app-tabla-seccion></app-tabla-seccion>
