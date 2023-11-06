@@ -40,6 +40,9 @@ export class FormCursoseccionComponent {
     return this.seccionService.secciones
   }
 
+  get alumnosHorarios(){
+    return this.horarioService.alumnosHorario
+  }
 
 
 }

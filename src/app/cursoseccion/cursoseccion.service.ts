@@ -10,7 +10,7 @@ import urlbase from '../constant';
 export class CursoseccionalumnoService {
   private _alumnos: Persona[] =[]
   private _profesores: Persona[] =[]
-
+  private _alumnosAddHorario: Persona[]=[]
   private _horarios:CursoSeccion[]=[
     {
       idcursoseccion:1,
@@ -34,8 +34,20 @@ export class CursoseccionalumnoService {
     return [...this._alumnos]
   }
 
+  get alumnosHorario():Persona[]{
+    return [...this._alumnosAddHorario]
+  }
+
   get profesores():Persona[]{
     return [...this._profesores]
+  }
+
+  addAlumnoHorario(opersona:Persona){
+    this._alumnosAddHorario.push(opersona)
+  }
+
+  deleteAlumnoHorario(opersona:Persona){
+    this._alumnosAddHorario= this._alumnosAddHorario.filter(p=>p.personId!=opersona.personId)
   }
 
   listarAlumnos(){
