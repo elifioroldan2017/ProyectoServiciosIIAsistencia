@@ -28,6 +28,12 @@ export class CursoService {
    }) 
   }
 
+  buscarCursos(nombre:string){
+    this._http.get<Curso[]>(urlbase+"/course/coursename/"+nombre).subscribe(res=>{
+      this._cursos=res;
+     }) 
+   }
+
   listarCarreras(){
     this._http.get<Carrera[]>(urlbase+"/career").subscribe(res=>{
       this._carreras=res;
