@@ -9,21 +9,7 @@ import urlbase from '../constant';
 })
 export class CursoService {
 
-  private _carreras:Carrera[]=[
-    {
-     careerId:1,
-     careerName:"Computacion e informatica",
-     careerDescription:"Computacion e informatica",
-     careerActive:"1"
-    },
-    {
-      careerId:2,
-      careerName:"Administracion y sistemas",
-      careerDescription:"Administracion y sistemas",
-      careerActive:"1"
-
-    }
-  ]
+  private _carreras:Carrera[]=[ ]
 
 
   private _cursos : Curso[]=[ ]
@@ -40,6 +26,12 @@ export class CursoService {
    this._http.get<Curso[]>(urlbase+"/course").subscribe(res=>{
     this._cursos=res;
    }) 
+  }
+
+  listarCarreras(){
+    this._http.get<Carrera[]>(urlbase+"/career").subscribe(res=>{
+      this._carreras=res;
+     }) 
   }
 
   insertarCurso(curso:Curso){
@@ -60,5 +52,6 @@ export class CursoService {
 
   constructor(private _http:HttpClient) { 
     this.listarCursos();
+    this.listarCarreras();
   }
 }
