@@ -5,6 +5,7 @@ import { CursoService } from 'src/app/curso/curso.service';
 import { SeccionService } from 'src/app/seccion/seccion.service';
 import { PersonaService } from 'src/app/persona/persona.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Persona } from 'src/app/persona/interface/Persona';
 
 @Component({
   selector: 'app-form-cursoseccion',
@@ -42,6 +43,10 @@ export class FormCursoseccionComponent {
 
   get alumnosHorarios(){
     return this.horarioService.alumnosHorario
+  }
+
+  eliminar(opersona:Persona){
+    this.horarioService.deleteAlumnoHorario(opersona)
   }
 
 
