@@ -2,7 +2,6 @@
 
     <thead>
         <tr>
-            <th>Id </th>
             <th>Nombre </th>
             <th>Operaciones </th>
         </tr>
@@ -11,7 +10,6 @@
 
         <tr *ngFor="let tipousu of tipousuarios">
 
-            <td>{{tipousu.userTypeId}} </td>
             <td>{{tipousu.name}} </td>
             <td>
                 <button class="btn btn-primary m-1" (click)="editar(tipousu.userTypeId)" >

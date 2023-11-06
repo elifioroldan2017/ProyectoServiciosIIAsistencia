@@ -46,7 +46,7 @@ export class TipousuarioService {
   }
 
   eliminarTipoUsuario(id:number){
-    return this._http.delete(urlbase+"/usertypes/"+id);
+    return this._http.delete(urlbase+"/usertypes/delete/"+id);
   }
 
 
