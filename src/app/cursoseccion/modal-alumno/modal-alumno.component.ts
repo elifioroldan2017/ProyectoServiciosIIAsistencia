@@ -1,6 +1,7 @@
 import { Component, ElementRef } from '@angular/core';
 import { CursoseccionalumnoService } from '../cursoseccion.service';
 import { Persona } from 'src/app/persona/interface/Persona';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-modal-alumno',
@@ -30,7 +31,14 @@ export class ModalAlumnoComponent {
       }
     }
     else
-       alert("Ya se agrego")
+    Swal.fire({
+      title: 'Error!',
+      text: 'Ocurrió un error al procesar la solicitud.',
+      icon: 'error',
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Aceptar'
+    });
   }
 
 
