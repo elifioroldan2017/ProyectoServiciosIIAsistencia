@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { PersonaService } from '../persona.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Persona } from '../interface/Persona';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-form-persona',
@@ -38,17 +39,39 @@ export class FormPersonaComponent {
   }
 
   guardar(){
-    if(this.persona.personId==0){
-      this.personaService.insertarPersona(this.persona).subscribe(res=>{
-        this.router.navigate(["/persona"])
-        this.personaService.listarPersonas();
-      })
-    }else{
-      this.personaService.actualizarPersona(this.persona).subscribe(res=>{
-        this.router.navigate(["/persona"])
-        this.personaService.listarPersonas();
-      })
-    }
+
+
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: 'Esta seguro de guardar los datos de la persona?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si',
+      cancelButtonText:"No"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Aquí puedes ejecutar la lógica para eliminar el elemento
+        if(this.persona.personId==0){
+          this.personaService.insertarPersona(this.persona).subscribe(res=>{
+            Swal.fire('Exito!', 'Se realizo guardo los cambios correctamente', 'success');
+            this.router.navigate(["/persona"])
+            this.personaService.listarPersonas();
+          })
+        }else{
+          this.personaService.actualizarPersona(this.persona).subscribe(res=>{
+            Swal.fire('Exito!', 'Se actualizo los cambios correctamente', 'success');
+            this.router.navigate(["/persona"])
+            this.personaService.listarPersonas();
+          })
+        }
+
+      }
+    });
+
+
+   
   }
 
   regresar(){
