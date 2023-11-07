@@ -33,6 +33,12 @@ export class TipousuarioService {
     })
   }
 
+  buscarTipoUsuarios(nombre:string){
+    this._http.get<Tipousuario[]>(urlbase+"/usertypes/usertypename/"+nombre).subscribe(res=>{
+      this._tipousuarios=res;
+    })
+  }
+
   recuperarTipoUsuario(id:number){
     return  this._http.get<Tipousuario>(urlbase+"/usertypes/"+id);
   }

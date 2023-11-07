@@ -33,7 +33,7 @@ export class ModalAlumnoComponent {
     else
     Swal.fire({
       title: 'Error!',
-      text: 'Ocurrió un error al procesar la solicitud.',
+      text: 'El alumno '+opersona.personName+" "+opersona.personLastname1+" "+opersona.personLastname2,
       icon: 'error',
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
