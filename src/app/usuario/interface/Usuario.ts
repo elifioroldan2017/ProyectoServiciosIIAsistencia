@@ -4,7 +4,7 @@ import { Tipousuario } from "src/app/tipousuario/interface/TipoUsuario"
 export interface Usuario {
     userId: number
     personId: number
-    user: string
+    username: string
     password: string
     usertype: number
     active: string

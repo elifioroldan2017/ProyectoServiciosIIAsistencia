@@ -45,15 +45,15 @@ export class FormSeccionComponent {
       if (result.isConfirmed) {
 
           if(this.seccion.sectionId==0){
-            Swal.fire('Exito!', 'Se  guardó los cambios correctamente', 'success');
             this.seccionService.insertarSeccion(this.seccion).subscribe(res=>{
+              Swal.fire('Exito!', 'Se  guardó los cambios correctamente', 'success');
               this.router.navigate(["seccion"])
               this.seccionService.listarSeccion();
             })
           }else{
-            Swal.fire('Exito!', 'Se actualizó los cambios correctamente', 'success');
           this.seccionService.actualizarSeccion(this.seccion).subscribe(res=>{
-              this.router.navigate(["seccion"])
+            Swal.fire('Exito!', 'Se actualizó los cambios correctamente', 'success');
+            this.router.navigate(["seccion"])
               this.seccionService.listarSeccion();
             })
           }     

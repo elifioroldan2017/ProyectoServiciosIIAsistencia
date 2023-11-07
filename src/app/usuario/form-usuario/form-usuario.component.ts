@@ -6,7 +6,7 @@ import { TipousuarioService } from 'src/app/tipousuario/tipousuario.service';
 import { Usuario } from '../interface/Usuario';
 import { UsuarioService } from '../usuario.service';
 import { Persona } from 'src/app/persona/interface/Persona';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-form-usuario',
   templateUrl: './form-usuario.component.html',
@@ -18,7 +18,7 @@ export class FormUsuarioComponent {
   usuario:Usuario={
     userId: 0,
     personId: 0,
-    user: "",
+    username: "",
     password: "",
     usertype: 0,
     active: ""
@@ -53,18 +53,39 @@ export class FormUsuarioComponent {
   }
 
   guardar(){
-    if(this.usuario.userId==0)
-    {
-      this.usuarioService.insertarUsuario(this.usuario).subscribe(res=>{
-        this.routes.navigate(["usuario"])
-        this.usuarioService.listarUsuarios();
-      })
-    }else{
-      this.usuarioService.actualizarUsuario(this.usuario).subscribe(res=>{
-        this.routes.navigate(["usuario"])
-        this.usuarioService.listarUsuarios();
-      })
-    } 
+
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: 'Esta seguro de guardar los datos del usuario?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si',
+      cancelButtonText:"No"
+    }).then((result) => {
+      if (result.isConfirmed) {
+
+        
+          if(this.usuario.userId==0)
+          {
+            this.usuarioService.insertarUsuario(this.usuario).subscribe(res=>{
+              this.routes.navigate(["usuario"])
+              Swal.fire('Exito!', 'Se  guardó los cambios correctamente', 'success');
+              this.usuarioService.listarUsuarios();
+            })
+          }else{
+            this.usuarioService.actualizarUsuario(this.usuario).subscribe(res=>{
+              Swal.fire('Exito!', 'Se  actualizó los cambios correctamente', 'success');
+              this.routes.navigate(["usuario"])
+              this.usuarioService.listarUsuarios();
+            })
+          } 
+
+      }
+    });
+
+
  }
 
 
