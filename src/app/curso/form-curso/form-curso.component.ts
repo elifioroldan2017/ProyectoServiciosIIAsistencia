@@ -53,13 +53,13 @@ export class FormCursoComponent {
     }).then((result) => {
       if (result.isConfirmed) {
         if(this.curso.courseId==0){
-          Swal.fire('Exito!', 'Se realizo guardo los cambios correctamente', 'success');
+          Swal.fire('Exito!', 'Se  guardó los cambios correctamente', 'success');
           this.cursoService.insertarCurso(this.curso).subscribe(res=>{
             this.router.navigate(["curso"])
             this.cursoService.listarCursos();
           })
         }else{
-          Swal.fire('Exito!', 'Se realizo actualizo los cambios correctamente', 'success');
+          Swal.fire('Exito!', 'Se  actualizó los cambios correctamente', 'success');
           this.cursoService.actualizarCurso(this.curso).subscribe(res=>{
             this.router.navigate(["curso"])
             this.cursoService.listarCursos();

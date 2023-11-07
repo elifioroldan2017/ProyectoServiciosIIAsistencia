@@ -55,13 +55,13 @@ export class FormPersonaComponent {
         // Aquí puedes ejecutar la lógica para eliminar el elemento
         if(this.persona.personId==0){
           this.personaService.insertarPersona(this.persona).subscribe(res=>{
-            Swal.fire('Exito!', 'Se realizo guardo los cambios correctamente', 'success');
+            Swal.fire('Exito!', 'Se guardó los cambios correctamente', 'success');
             this.router.navigate(["/persona"])
             this.personaService.listarPersonas();
           })
         }else{
           this.personaService.actualizarPersona(this.persona).subscribe(res=>{
-            Swal.fire('Exito!', 'Se actualizo los cambios correctamente', 'success');
+            Swal.fire('Exito!', 'Se actualizó los cambios correctamente', 'success');
             this.router.navigate(["/persona"])
             this.personaService.listarPersonas();
           })
