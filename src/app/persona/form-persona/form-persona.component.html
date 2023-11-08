@@ -1,8 +1,18 @@
 <h2 class="text-center text-dark">{{titulo}}</h2>
-<form (ngSubmit)="guardar()">
+<form (ngSubmit)="guardar()" #personaForm="ngForm">
     <div class="mb-1">
         <label>Nombre</label>
-        <input type="text" [(ngModel)]="persona.personName" name="personName" class="form-control" />
+        <input type="text" 
+            [(ngModel)]="persona.personName" 
+            name="personName" 
+            class="form-control" 
+            required
+            minlength="2"
+            maxlength="100"/>
+        <span class="form-text text-danger"
+            *ngIf="">
+            Máximo 100 caracteres
+        </span>
     </div>
     <div>
         <label>Apellido Paterno</label>
@@ -54,7 +64,7 @@
 
 
     <div class="mt-2 mb-2">
-        <button type="submit" class="btn btn-success m-1">Guardar</button>
+        <button type="submit" class="btn btn-success m-1" [disabled]="personaForm.invalid">Guardar</button>
         <button type="button" class="btn btn-danger" (click)="regresar()">Regresar</button>
     </div>
 

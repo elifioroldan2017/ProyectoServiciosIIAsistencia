@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { PersonaService } from '../persona.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Persona } from '../interface/Persona';
 import Swal from 'sweetalert2';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-form-persona',
@@ -10,6 +11,8 @@ import Swal from 'sweetalert2';
   styleUrls: ['./form-persona.component.css']
 })
 export class FormPersonaComponent {
+
+  @ViewChild('personaForm') form !: NgForm;
 
   titulo:string="";
   persona:Persona={
