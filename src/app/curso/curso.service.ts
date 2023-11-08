@@ -3,27 +3,14 @@ import { Curso } from './interface/Curso';
 import { Carrera } from './interface/Carrera';
 import { HttpClient } from '@angular/common/http';
 import urlbase from '../constant';
+import Swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CursoService {
 
-  private _carreras:Carrera[]=[
-    {
-     careerId:1,
-     careerName:"Computacion e informatica",
-     careerDescription:"Computacion e informatica",
-     careerActive:"1"
-    },
-    {
-      careerId:2,
-      careerName:"Administracion y sistemas",
-      careerDescription:"Administracion y sistemas",
-      careerActive:"1"
-
-    }
-  ]
+  private _carreras:Carrera[]=[ ]
 
 
   private _cursos : Curso[]=[ ]
@@ -42,6 +29,18 @@ export class CursoService {
    }) 
   }
 
+  buscarCursos(nombre:string){
+    this._http.get<Curso[]>(urlbase+"/course/coursename/"+nombre).subscribe(res=>{
+      this._cursos=res;
+     }) 
+   }
+
+  listarCarreras(){
+    this._http.get<Carrera[]>(urlbase+"/career").subscribe(res=>{
+      this._carreras=res;
+     }) 
+  }
+
   insertarCurso(curso:Curso){
      return this._http.post<Curso>(urlbase+"/course/",curso)
   }
@@ -55,10 +54,11 @@ export class CursoService {
   }
 
   eliminarCurso(id:number){
-    return this._http.delete(urlbase+"/course/"+id);
+    return this._http.delete(urlbase+"/course/delete/"+id);
   }
 
   constructor(private _http:HttpClient) { 
     this.listarCursos();
+    this.listarCarreras();
   }
 }

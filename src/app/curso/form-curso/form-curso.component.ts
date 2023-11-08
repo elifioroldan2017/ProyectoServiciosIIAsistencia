@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CursoService } from '../curso.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Curso } from '../interface/Curso';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-form-curso',
@@ -39,16 +40,36 @@ export class FormCursoComponent {
    }
 
    guardar(){
-    if(this.curso.courseId==0){
-      this.cursoService.insertarCurso(this.curso).subscribe(res=>{
-        this.router.navigate(["curso"])
-        this.cursoService.listarCursos();
-      })
-    }else{
-      this.cursoService.actualizarCurso(this.curso).subscribe(res=>{
-        this.router.navigate(["curso"])
-        this.cursoService.listarCursos();
-      })
-    }
+
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: 'Esta seguro de guardar los datos del curso?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si',
+      cancelButtonText:"No"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        if(this.curso.courseId==0){
+          this.cursoService.insertarCurso(this.curso).subscribe(res=>{
+            Swal.fire('Exito!', 'Se  guardó los cambios correctamente', 'success');
+            this.router.navigate(["curso"])
+            this.cursoService.listarCursos();
+          })
+        }else{
+          this.cursoService.actualizarCurso(this.curso).subscribe(res=>{
+            Swal.fire('Exito!', 'Se  actualizó los cambios correctamente', 'success');
+            this.router.navigate(["curso"])
+            this.cursoService.listarCursos();
+          })
+        }
+
+      }
+    });
+
+
+ 
    }
 }

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { PersonaService } from '../persona.service';
 
 @Component({
   selector: 'app-persona-principal',
@@ -7,13 +8,21 @@ import { Router } from '@angular/router';
   styleUrls: ['./persona-principal.component.css']
 })
 export class PersonaPrincipalComponent {
-
-  constructor(private router:Router){
+  nombrePersona:string=""
+  constructor(private router:Router,private personaService:PersonaService){
 
   }
 
   nuevo(){
    this.router.navigate(["/persona/agregar"])
+  }
+
+  buscarPersona(){
+    if(this.nombrePersona==""){
+      this.personaService.listarPersonas();
+    }else{
+      this.personaService.buscarPersonas(this.nombrePersona)
+    }
   }
 
 }

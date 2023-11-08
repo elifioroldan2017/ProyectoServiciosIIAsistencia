@@ -4,12 +4,12 @@
         <label>Nombre Persona</label>
         <select [(ngModel)]="usuario.personId" name="personId" class="form-control">
             <option value="0">--Seleccione--</option>
-            <option *ngFor="let persona of personas" [value]="persona.personId">{{persona.personName+ ' '+persona.personLastname1+ ' '+persona.personLastname2}}</option>
+            <option *ngFor="let persona of personasList" [value]="persona.personId">{{persona.personName+ ' '+persona.personLastname1+ ' '+persona.personLastname2}}</option>
         </select>
     </div>
     <div>
         <label>Nombre Usuario</label>
-        <input [(ngModel)]="usuario.user" name="user" type="text" class="form-control" />
+        <input [(ngModel)]="usuario.username" name="username" type="text" class="form-control" />
     </div>
 
     <div *ngIf="usuario.userId==0" >

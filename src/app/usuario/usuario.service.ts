@@ -24,7 +24,7 @@ export class UsuarioService {
    }
 
    eliminarUsuario(id:number){
-    return this._http.get(urlbase+"/user/delete/"+id)
+    return this._http.delete(urlbase+"/user/"+id)
    }
 
    insertarUsuario(ousuario:Usuario){

@@ -19,6 +19,12 @@ export class SeccionService {
       })
   }
 
+  buscarSeccion(nombre:string){
+    this.http.get<Seccion[]>(urlbase+"/section/sectionname/"+nombre).subscribe(res=>{
+      this._seccion=res;
+    })
+}
+
   insertarSeccion(oseccion:Seccion){
     return this.http.post<Seccion>(urlbase+"/section/",oseccion)
   }

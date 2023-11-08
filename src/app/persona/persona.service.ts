@@ -41,6 +41,12 @@ export class PersonaService {
     })
   }
 
+  buscarPersonas(nombre:string){
+    this._http.get<Persona[]>(urlbase+"/person/personname/"+nombre).subscribe(res=>{
+      this._personas=res;
+    })
+  }
+
   listarSexo(){
     this._http.get<Sexo[]>(urlbase+"/sex").subscribe(res=>{
       this._sexos=res;
@@ -53,7 +59,7 @@ export class PersonaService {
 
   
   eliminarPersona(id:number){
-    return this._http.get(urlbase+"/person/delete/"+id);
+    return this._http.delete(urlbase+"/person/"+id);
   }
 
 
@@ -63,6 +69,10 @@ export class PersonaService {
 
   actualizarPersona(opersona:Persona){
     return this._http.put<Persona>(urlbase+"/person/",opersona)
+  }
+
+  listarPersonasSinUsuario(){
+    return this._http.get<Persona[]>(urlbase+"/person/withoutuser");
   }
 
 

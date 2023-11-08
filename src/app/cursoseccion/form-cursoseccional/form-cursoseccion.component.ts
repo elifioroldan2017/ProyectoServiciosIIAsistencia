@@ -5,6 +5,7 @@ import { CursoService } from 'src/app/curso/curso.service';
 import { SeccionService } from 'src/app/seccion/seccion.service';
 import { PersonaService } from 'src/app/persona/persona.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Persona } from 'src/app/persona/interface/Persona';
 
 @Component({
   selector: 'app-form-cursoseccion',
@@ -14,7 +15,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class FormCursoseccionComponent {
   titulo:string=""
 
-  constructor(private cursoSeccionService:CursoseccionalumnoService,
+  constructor(private horarioService:CursoseccionalumnoService,
     private cursoService:CursoService,private seccionService:SeccionService,
     private personaService:PersonaService,private router:Router,
     private activateRoute:ActivatedRoute){
@@ -28,8 +29,8 @@ export class FormCursoseccionComponent {
     return this.cursoService.cursos
   }
 
-  get personas(){
-    return this.personaService.personas
+  get profesores(){
+    return this.horarioService.profesores
   }
 
   regresar(){
@@ -39,5 +40,14 @@ export class FormCursoseccionComponent {
   get secciones(){
     return this.seccionService.secciones
   }
+
+  get alumnosHorarios(){
+    return this.horarioService.alumnosHorario
+  }
+
+  eliminar(opersona:Persona){
+    this.horarioService.deleteAlumnoHorario(opersona)
+  }
+
 
 }

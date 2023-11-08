@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TipousuarioService } from '../tipousuario.service';
 import { Menu } from '../interface/Menu';
 import { Tipousuario } from '../interface/TipoUsuario';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-form-tipousuario',
   templateUrl: './form-tipousuario.component.html',
@@ -28,7 +28,22 @@ export class FormTipousuarioComponent {
   }
 
   guardar(){
-    
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: 'Esta seguro de guardar los datos del tipo usuario?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si',
+      cancelButtonText:"No"
+    }).then((result) => {
+      if (result.isConfirmed) {
+       
+
+      }
+    });
+
   }
 
    get menus():Menu[]{

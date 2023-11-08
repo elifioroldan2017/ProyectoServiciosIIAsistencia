@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { CursoService } from '../curso.service';
 
 @Component({
   selector: 'app-curso-principal',
@@ -8,8 +9,17 @@ import { Router } from '@angular/router';
 })
 export class CursoPrincipalComponent {
 
-  constructor(private router:Router){
+  nombreCurso:string=""
+  constructor(private router:Router,private cursoService:CursoService ){
 
+  }
+
+  buscarCurso(){
+    if(this.nombreCurso==""){
+      this.cursoService.listarCursos();
+    }else{
+      this.cursoService.buscarCursos(this.nombreCurso)
+    }
   }
 
   nuevo(){
