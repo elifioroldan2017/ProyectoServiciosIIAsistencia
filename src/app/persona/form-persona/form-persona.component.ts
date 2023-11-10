@@ -14,6 +14,50 @@ export class FormPersonaComponent {
 
   @ViewChild('personaForm') form !: NgForm;
 
+
+  nombreInvalido(): boolean {
+    if (this.form?.controls['personName'].touched) {
+      const pattern = /^[A-Za-zÁáÉéÍíÓóÚúÜüÑñ\s.']*$/;
+      return this.form?.controls['personName']?.invalid || 
+             !pattern.test(this.form?.controls['personName']?.value);
+    }
+
+    return false;
+  }
+  paternoInvalido(): boolean {
+    if (this.form?.controls['personLastname1'].touched) {
+      const pattern = /^[A-Za-zÁáÉéÍíÓóÚúÜüÑñ\s.']*$/;
+      return this.form?.controls['personLastname1']?.invalid || 
+             !pattern.test(this.form?.controls['personLastname1']?.value);
+    }
+
+    return false;
+  }
+  maternoInvalido(): boolean {
+    if (this.form?.controls['personLastname2'].touched) {
+      const pattern = /^[A-Za-zÁáÉéÍíÓóÚúÜüÑñ\s.']*$/;
+      return this.form?.controls['personLastname2']?.invalid || 
+             !pattern.test(this.form?.controls['personLastname2']?.value);
+    }
+
+    return false;
+  }
+
+  emailInvalido(): boolean {
+    if (this.form?.controls['personEmail'].touched) {
+      const pattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      return this.form?.controls['personEmail'].invalid || 
+             !pattern.test(this.form?.controls['personEmail']?.value);
+    }
+  
+    return false;
+  }
+  direccionInvalido(): boolean {
+      return this.form?.controls['personAddress']?.invalid && 
+      this.form?.controls['personAddress'].touched;
+  }
+  
+
   titulo:string="";
   persona:Persona={
     personId: 0,

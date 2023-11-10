@@ -10,28 +10,67 @@
             minlength="2"
             maxlength="100"/>
         <span class="form-text text-danger"
-            *ngIf="">
-            Máximo 100 caracteres
+            *ngIf="nombreInvalido()">
+            Por favor, sólo escriba letras. 2 como mínimo
         </span>
     </div>
     <div>
         <label>Apellido Paterno</label>
-        <input type="text" [(ngModel)]="persona.personLastname1" name="personLastname1" class="form-control" />
+        <input type="text" 
+            [(ngModel)]="persona.personLastname1" 
+            name="personLastname1" 
+            class="form-control" 
+            required
+            minlength="2"
+            maxlength="200"/>
+        <span class="form-text text-danger"
+            *ngIf="paternoInvalido()">
+            Por favor, sólo escriba letras. 2 como mínimo
+        </span>
     </div>
 
     <div>
         <label>Apellido Materno</label>
-        <input type="text" [(ngModel)]="persona.personLastname2"  name="personLastname2"  class="form-control" />
+        <input type="text" 
+            [(ngModel)]="persona.personLastname2"  
+            name="personLastname2"  
+            class="form-control" 
+            required
+            minlength="2"
+            maxlength="200"/>
+        <span class="form-text text-danger"
+            *ngIf="maternoInvalido()">
+            Por favor, sólo escriba letras. 2 como mínimo
+        </span>
     </div>
 
     <div>
         <label>Correo</label>
-        <input type="email" [(ngModel)]="persona.personEmail" name="personEmail"  class="form-control" />
+        <input type="email" 
+            [(ngModel)]="persona.personEmail" 
+            name="personEmail"  
+            class="form-control" 
+            required
+            minlength="5"
+            maxlength="100"/>
+        <span class="form-text text-danger"
+            *ngIf="emailInvalido()">
+            Por favor, ingrese un formato valido de email
+        </span>
     </div>
 
     <div>
         <label>Dirección</label>
-        <input type="text" [(ngModel)]="persona.personAddress" name="personAddress"  class="form-control" />
+        <input type="text" 
+            [(ngModel)]="persona.personAddress" 
+            name="personAddress"  
+            class="form-control" 
+            required
+            maxlength="400"/>
+        <span class="form-text text-danger"
+            *ngIf="direccionInvalido()">
+            Por favor, sólo escriba la dirección
+        </span>
     </div>
  
     <div>
@@ -70,3 +109,5 @@
 
 
 </form>
+
+<span>{{personaForm.touched}}</span>
