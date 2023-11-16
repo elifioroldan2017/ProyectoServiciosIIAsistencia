@@ -79,6 +79,10 @@
             <option value="0">--Seleccione--</option>
             <option *ngFor="let tipo of tipos" [value]="tipo.typeId" >{{tipo.typeName}}</option>
         </select>
+        <span class="form-text text-danger"
+            *ngIf="tipoInvalido()">
+            Por favor, seleccione un tipo 
+        </span>
     </div>
  
     <div>
@@ -87,18 +91,30 @@
             <option value="0">--Seleccione--</option>
             <option *ngFor="let sexo of sexos" [value]="sexo.sexId" >{{sexo.sexDescription}}</option>
         </select>
+        <span class="form-text text-danger"
+            *ngIf="sexoInvalido()">
+            Por favor, seleccione un sexo
+        </span>
     </div>
 
  
 
     <div>
         <label>Fecha Nacimiento</label>
-        <input type="date" name="personBirthdate" [(ngModel)]="persona.personBirthdate" class="form-control" />
+        <input type="date" 
+            name="personBirthdate" 
+            [(ngModel)]="persona.personBirthdate" 
+            class="form-control" 
+            required/>
+        <span class="form-text text-danger"
+            *ngIf="fechaInvalido()">
+            Por favor, la fecha de nacimiento no puede ser mayor a la de hoy
+        </span>
     </div>
 
     <div>
         <label>Telefono celular</label>
-        <input type="text" name="personPhone" [(ngModel)]="persona.personPhone" class="form-control" />
+        <input type="number" name="personPhone" [(ngModel)]="persona.personPhone" class="form-control" />
     </div>
 
 
@@ -109,5 +125,3 @@
 
 
 </form>
-
-<span>{{personaForm.touched}}</span>

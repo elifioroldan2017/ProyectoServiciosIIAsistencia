@@ -18,8 +18,13 @@ export class FormPersonaComponent {
   nombreInvalido(): boolean {
     if (this.form?.controls['personName'].touched) {
       const pattern = /^[A-Za-zÁáÉéÍíÓóÚúÜüÑñ\s.']*$/;
-      return this.form?.controls['personName']?.invalid || 
-             !pattern.test(this.form?.controls['personName']?.value);
+      if (this.form?.controls['personName']?.invalid || 
+      !pattern.test(this.form?.controls['personName']?.value)) {
+        this.form?.controls['personName'].setErrors({'incorrect type': true});
+        return true;
+      }
+      this.form?.controls['personName'].setErrors(null);
+      return false;
     }
 
     return false;
@@ -27,8 +32,13 @@ export class FormPersonaComponent {
   paternoInvalido(): boolean {
     if (this.form?.controls['personLastname1'].touched) {
       const pattern = /^[A-Za-zÁáÉéÍíÓóÚúÜüÑñ\s.']*$/;
-      return this.form?.controls['personLastname1']?.invalid || 
-             !pattern.test(this.form?.controls['personLastname1']?.value);
+      if (this.form?.controls['personLastname1']?.invalid || 
+      !pattern.test(this.form?.controls['personLastname1']?.value)) {
+        this.form?.controls['personLastname1'].setErrors({'incorrect type': true});
+        return true;
+      }
+      this.form?.controls['personLastname1'].setErrors(null);
+      return false;
     }
 
     return false;
@@ -36,8 +46,13 @@ export class FormPersonaComponent {
   maternoInvalido(): boolean {
     if (this.form?.controls['personLastname2'].touched) {
       const pattern = /^[A-Za-zÁáÉéÍíÓóÚúÜüÑñ\s.']*$/;
-      return this.form?.controls['personLastname2']?.invalid || 
-             !pattern.test(this.form?.controls['personLastname2']?.value);
+      if (this.form?.controls['personLastname2']?.invalid || 
+      !pattern.test(this.form?.controls['personLastname2']?.value)) {
+        this.form?.controls['personLastname2'].setErrors({'incorrect type': true});
+        return true;
+      }
+      this.form?.controls['personLastname2'].setErrors(null);
+      return false;
     }
 
     return false;
@@ -46,8 +61,14 @@ export class FormPersonaComponent {
   emailInvalido(): boolean {
     if (this.form?.controls['personEmail'].touched) {
       const pattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-      return this.form?.controls['personEmail'].invalid || 
-             !pattern.test(this.form?.controls['personEmail']?.value);
+      if (this.form?.controls['personEmail'].invalid || 
+      !pattern.test(this.form?.controls['personEmail']?.value)){
+        this.form?.controls['personEmail'].setErrors({'incorrect': true});
+        console.log(this.form)
+        return true;
+      }
+      this.form?.controls['personEmail'].setErrors(null);
+      return false;
     }
   
     return false;
@@ -55,6 +76,37 @@ export class FormPersonaComponent {
   direccionInvalido(): boolean {
       return this.form?.controls['personAddress']?.invalid && 
       this.form?.controls['personAddress'].touched;
+  }
+  tipoInvalido(): boolean {
+    if(this.form?.controls['typeId'].value === '0' || !this.form?.controls['typeId'].value) {
+      this.form?.controls['typeId'].setErrors({'not selected': true});
+      return this.form?.controls['typeId'].touched && 
+      (this.form?.controls['typeId'].value === '0' || !this.form?.controls['typeId'].value);
+    }
+    this.form?.controls['typeId']?.setErrors(null);
+    return false;
+  }
+  sexoInvalido(): boolean {
+    if(this.form?.controls['sexId'].value === '0' || !this.form?.controls['sexId'].value) {
+      this.form?.controls['sexId'].setErrors({'not selected': true});
+      return this.form?.controls['sexId'].touched && 
+      (this.form?.controls['sexId'].value === '0' || !this.form?.controls['sexId'].value);
+    }
+    this.form?.controls['sexId']?.setErrors(null);
+    return false;
+  }
+  fechaInvalido(): boolean {
+    if (this.form?.controls['personBirthdate'].touched){
+      const fechaNacimiento = this.form?.controls['personBirthdate'].value;
+      const fechaActual = new Date().toISOString().split('T')[0];
+      if(fechaNacimiento > fechaActual) {
+        this.form?.controls['personBirthdate'].setErrors({'incorrect date': true});
+        return true;
+      }
+      this.form?.controls['personBirthdate'].setErrors(null);
+      return false;
+    }
+    return false;
   }
   
 
