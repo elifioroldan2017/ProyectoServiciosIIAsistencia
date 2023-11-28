@@ -19,12 +19,12 @@
         <section class="FormContainer">
             <div class="InputContainer">
                 <label class="label">Usuario*</label>
-                <input class="input" type="text">
+                <input class="input" [(ngModel)]="oLogin.username" type="text">
             </div>
             <div class="InputContainer">
                 <label class="label">Password*</label>
                 <div class="PasswordInputContainer">
-                    <input class="input"  [type]="mostrarContrasena ? 'text' : 'password'">
+                    <input class="input"  [type]="mostrarContrasena ? 'text' : 'password'"  [(ngModel)]="oLogin.password" >
                     <button class="ShowPasswordButton" (click)="toggleMostrarContrasena()">
                         <svg fill="grey" version="1.1"
                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
@@ -42,7 +42,7 @@
         </section>
         <section class="ButtonsContainer">
             <div class="SignInButtonContainer">
-                <button class="SigninButton">Ingresar</button>
+                <button  (click)="enviar()" type="submit" class="SigninButton">Ingresar</button>
             </div>
         
         </section>

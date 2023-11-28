@@ -14,6 +14,7 @@ import { SeccionModule } from './seccion/seccion.module';
 import {HttpClientModule} from "@angular/common/http";
 import { MenuModule } from './menu/menu.module';
 import { AsistenciaModule } from './asistencia/asistencia.module';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +32,8 @@ import { AsistenciaModule } from './asistencia/asistencia.module';
     UsuarioModule,
     SeccionModule,
     MenuModule,
-    AsistenciaModule
+    AsistenciaModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

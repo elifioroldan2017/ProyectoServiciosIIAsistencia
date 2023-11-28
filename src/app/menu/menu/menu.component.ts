@@ -15,6 +15,7 @@ export class MenuComponent {
   {
   
     var data = this.usuarioService.obtenerUsuarioDesdeStorage()
+    if(data!=null)
     this.nombreCompleto= data.name+" "+data.lastname1+" "+data.lastname2
   }
 

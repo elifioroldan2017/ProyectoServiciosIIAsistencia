@@ -14,6 +14,7 @@ import { FormSeccionComponent } from './seccion/form-seccion/form-seccion.compon
 import { FormCursoseccionComponent } from './cursoseccion/form-cursoseccional/form-cursoseccion.component';
 import { FormTipousuarioComponent } from './tipousuario/form-tipousuario/form-tipousuario.component';
 import { FormUsuarioComponent } from './usuario/form-usuario/form-usuario.component';
+import { guardsGuard } from './login/guards.guard';
 
 const routes: Routes = [
 
@@ -24,79 +25,101 @@ const routes: Routes = [
   },
   {
     path:"persona",
-    component:PersonaPrincipalComponent
+    component:PersonaPrincipalComponent,
+    canActivate:[guardsGuard]
+
   },
   {
     path:"persona/agregar",
-    component:FormPersonaComponent
+    component:FormPersonaComponent,
+    canActivate:[guardsGuard]
+
   },
   {
     path:"persona/editar/:id",
-    component:FormPersonaComponent
+    component:FormPersonaComponent,
+    canActivate:[guardsGuard]
+
   },
   {
     path:"curso",
-    component:CursoPrincipalComponent
+    component:CursoPrincipalComponent,
+    canActivate:[guardsGuard]
   },
   {
     path:"curso/agregar",
-    component:FormCursoComponent
+    component:FormCursoComponent,
+    canActivate:[guardsGuard]
   },
   {
     path:"curso/editar/:id",
-    component:FormCursoComponent
+    component:FormCursoComponent,
+    canActivate:[guardsGuard]
   },
   {
     path:"seccion",
-    component:SeccionPrincipalComponent
+    component:SeccionPrincipalComponent,
+    canActivate:[guardsGuard]
   },
   {
     path:"seccion/agregar",
-    component:FormSeccionComponent
+    component:FormSeccionComponent,
+    canActivate:[guardsGuard]
   },
   {
     path:"seccion/editar/:id",
-    component:FormSeccionComponent
+    component:FormSeccionComponent,
+    canActivate:[guardsGuard]
   },
   {
     path:"horario",
-    component:CursoseccionPrincipalComponent
+    component:CursoseccionPrincipalComponent,
+    canActivate:[guardsGuard]
   },
   {
     path:"horario/agregar",
-    component:FormCursoseccionComponent
+    component:FormCursoseccionComponent,
+    canActivate:[guardsGuard]
   },
   {
     path:"horario/editar/:id",
-    component:FormCursoseccionComponent
+    component:FormCursoseccionComponent,
+    canActivate:[guardsGuard]
   },
   {
     path:"tipousuario",
-    component:TipousuarioPrincipalComponent
+    component:TipousuarioPrincipalComponent,
+    canActivate:[guardsGuard]
   },
   {
     path:"tipousuario/agregar",
-    component:FormTipousuarioComponent
+    component:FormTipousuarioComponent,
+    canActivate:[guardsGuard]
   },
   {
     path:"tipousuario/editar/:id",
-    component:FormTipousuarioComponent
+    component:FormTipousuarioComponent,
+    canActivate:[guardsGuard]
   },
   {
     path:"usuario",
-    component:UsuarioPrincipalComponent
+    component:UsuarioPrincipalComponent,
+   // canActivate:[guardsGuard]
   },
   {
     path:"usuario/agregar",
-    component:FormUsuarioComponent
+    component:FormUsuarioComponent,
+    //canActivate:[guardsGuard]
   },
   {
     path:"usuario/editar/:id",
-    component:FormUsuarioComponent
+    component:FormUsuarioComponent,
+    canActivate:[guardsGuard]
   },
   {
     path:"asistencia",
-    component:AsistenciaPrincipalComponent
+    component:AsistenciaPrincipalComponent,
+    canActivate:[guardsGuard]
   },
   {
     path:"login",
