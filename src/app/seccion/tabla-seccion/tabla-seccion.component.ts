@@ -48,5 +48,9 @@ export class TablaSeccionComponent {
    
   }
 
+  cambiar(event:any){
+    this.seccionService.page=event
+  }
+
 
 }

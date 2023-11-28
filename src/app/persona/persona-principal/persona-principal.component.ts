@@ -25,4 +25,8 @@ export class PersonaPrincipalComponent {
     }
   }
 
+  limpiar(){
+    
+  }
+
 }

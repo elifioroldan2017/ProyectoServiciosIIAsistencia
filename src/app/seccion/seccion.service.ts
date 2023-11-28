@@ -8,6 +8,8 @@ import urlbase from '../constant';
 })
 export class SeccionService {
   private _seccion:Seccion[]=[]
+  totalLength:any;
+  page:number=1;
 
   get secciones(){
     return [...this._seccion]

@@ -8,6 +8,8 @@ import urlbase from '../constant';
 })
 export class UsuarioService {
   private _usuarios:Usuario[]=[]
+  totalLength:any;
+  page:number=1;
 
    get usuarios():Usuario[]{
     return [...this._usuarios]

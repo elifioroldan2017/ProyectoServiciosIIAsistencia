@@ -1,13 +1,18 @@
-<h2 class="text-center text-dark">Mantenimiento Persona</h2>
-<div class="d-flex justify-content-center">
-    <button class="btn btn-dark" (click)="nuevo()">Nuevo</button>
-</div>
-<form (ngSubmit)="buscarPersona()" >
-    <div class="input-group mb-3 mt-3">
-        <input type="text" class="form-control"
-        [(ngModel)]="nombrePersona"  name="nombrePersona"
-        placeholder="Ingrese nombre de la Sección" aria-label="Nombre Persona" aria-describedby="button-addon2">
-        <button class="btn btn-outline-dark" type="submit" id="button-addon2">Buscar</button>
-     </div>
-</form>
-<app-tabla-persona></app-tabla-persona>
+
+    <div class="d-flex justify-content-center mt-3">
+        <button class="btn btn-success" (click)="nuevo()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
+          </svg></button>
+    </div>
+    <form (ngSubmit)="buscarPersona()" >
+        <div class="input-group mb-3 mt-3">
+            <input type="text" class="form-control"
+            [(ngModel)]="nombrePersona"  name="nombrePersona"
+            placeholder="Ingrese nombre de la persona" aria-label="Nombre Persona" aria-describedby="button-addon2">
+            <button class="btn btn-outline-primary" type="submit" id="button-addon2">Buscar</button>
+            <button class="btn btn-outline-dark" (click)="limpiar()" type="button" id="button-addon2">Limpiar</button>
+    
+         </div>
+    </form>
+    <app-tabla-persona></app-tabla-persona>
+

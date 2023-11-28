@@ -47,4 +47,9 @@ export class TablaCursoComponent {
   
   }
 
+  cambiar(event:any){
+    this.cursoservice.page=event
+  }
+
+
 }

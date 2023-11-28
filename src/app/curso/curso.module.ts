@@ -4,6 +4,7 @@ import { CursoPrincipalComponent } from './curso-principal/curso-principal.compo
 import { TablaCursoComponent } from './tabla-curso/tabla-curso.component';
 import { FormCursoComponent } from './form-curso/form-curso.component';
 import { FormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 
@@ -15,7 +16,8 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     FormsModule,
-    CommonModule
+    CommonModule,
+    NgxPaginationModule
   ]
 })
 export class CursoModule { }

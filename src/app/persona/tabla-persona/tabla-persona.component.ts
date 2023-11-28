@@ -14,6 +14,15 @@ export class TablaPersonaComponent {
 
   }
 
+  get page(){
+    return this.personaService.page;
+  }
+
+  get totalLength(){
+    return this.personaService.totalLength;
+
+  }
+
   editar(idpersona:number){
     this.router.navigate(["persona/editar/"+idpersona])
 
@@ -46,6 +55,10 @@ export class TablaPersonaComponent {
 
   get personas(){
     return this.personaService.personas
+  }
+
+  cambiar(event:any){
+    this.personaService.page=event
   }
 
 }

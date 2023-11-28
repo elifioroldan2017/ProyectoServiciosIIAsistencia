@@ -47,5 +47,9 @@ export class TablaUsuarioComponent {
    
   }
 
+  cambiar(event:any){
+    this.usuarioService.page=event
+  }
+
 
 }

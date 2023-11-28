@@ -14,6 +14,8 @@ export class CursoService {
 
 
   private _cursos : Curso[]=[ ]
+  totalLength:any;
+  page:number=1;
 
   get cursos():Curso[]{
     return [...this._cursos]
