@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginPrincipalComponent } from './login/login-principal/login-principal.component';
-import { FormLoginComponent } from './login/form-login/form-login.component';
 import { CursoModule } from './curso/curso.module';
 import { PersonaModule } from './persona/persona.module';
 import { CursoseccionModule } from './cursoseccion/cursoseccion.module';
@@ -19,7 +18,6 @@ import { AsistenciaModule } from './asistencia/asistencia.module';
   declarations: [
     AppComponent,
     LoginPrincipalComponent,
-    FormLoginComponent,
   ],
   imports: [
     BrowserModule,
