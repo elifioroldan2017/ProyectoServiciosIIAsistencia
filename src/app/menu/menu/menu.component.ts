@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Route, Router } from '@angular/router';
+import Menu from 'src/app/login/interface/Menu';
 import { LoginService } from 'src/app/login/login.service';
 import { UsuarioService } from 'src/app/usuario/usuario.service';
 
@@ -23,6 +24,12 @@ export class MenuComponent {
     this.usuarioService.eliminarUsuarioDelStorage();
     this.loginService.oUser=null
     this.router.navigate(["/"])
+  }
+
+  get menus(){
+    var data= this.usuarioService.obtenerUsuarioDesdeStorage()
+    var menus:Menu[] = data.menus
+    return menus
   }
 
   

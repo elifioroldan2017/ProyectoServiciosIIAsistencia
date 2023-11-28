@@ -15,6 +15,7 @@ import { FormCursoseccionComponent } from './cursoseccion/form-cursoseccional/fo
 import { FormTipousuarioComponent } from './tipousuario/form-tipousuario/form-tipousuario.component';
 import { FormUsuarioComponent } from './usuario/form-usuario/form-usuario.component';
 import { guardsGuard } from './login/guards.guard';
+import { MisCursosComponent } from './asistencia/mis-cursos/mis-cursos.component';
 
 const routes: Routes = [
 
@@ -117,8 +118,12 @@ const routes: Routes = [
     canActivate:[guardsGuard]
   },
   {
-    path:"asistencia",
+    path:"asistencia/:id",
     component:AsistenciaPrincipalComponent,
+    canActivate:[guardsGuard]
+  },  {
+    path:"mihorario",
+    component:MisCursosComponent,
     canActivate:[guardsGuard]
   },
   {

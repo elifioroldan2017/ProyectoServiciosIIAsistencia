@@ -1,42 +1,49 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-          <li class="nav-item" routerLink="/persona" >
+      <!-- Barra de navegación izquierda para el nombre del usuario -->
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+          <div class="navbar-text">
+            <p class="mb-0">{{ nombreCompleto }}</p>
+          </div>
+        </div>
+      </nav>
+  
+      <!-- Barra de navegación derecha para el menú -->
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li *ngFor="let menu of menus" class="nav-item" [routerLink]="menu.menuUrlRedirect">
+              <a class="nav-link active" aria-current="page" style="cursor: pointer;">{{menu.menuOptionName}}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" (click)="cerrarSesion()" aria-current="page" style="cursor: pointer;">Cerrar Sesion</a>
+            </li>
+            
+            <!--  <li class="nav-item" routerLink="/persona" >
             <a class="nav-link active" aria-current="page" style="cursor: pointer;">Persona</a>
-          </li>
-          <li class="nav-item" routerLink="/curso">
-            <a class="nav-link active" aria-current="page" style="cursor: pointer;" >Curso</a>
-          </li>
-          <li class="nav-item" routerLink="/seccion">
-            <a class="nav-link active" aria-current="page" style="cursor: pointer;" >Seccion</a>
-          </li>
-          <li class="nav-item" routerLink="/horario">
-            <a class="nav-link active" aria-current="page" style="cursor: pointer;" >Horario</a>
-          </li>
-          <li class="nav-item" routerLink="/usuario">
-            <a class="nav-link active" aria-current="page" style="cursor: pointer;" >Usuario</a>
-          </li>
-          <li class="nav-item" routerLink="/asistencia">
-            <a class="nav-link active" aria-current="page" style="cursor: pointer;" >Asistencia</a>
-          </li>
+                </li>
+                <li class="nav-item" routerLink="/curso">
+                    <a class="nav-link active" aria-current="page" style="cursor: pointer;" >Curso</a>
+                </li>
+                <li class="nav-item" routerLink="/seccion">
+                    <a class="nav-link active" aria-current="page" style="cursor: pointer;" >Seccion</a>
+                </li>
+                <li class="nav-item" routerLink="/horario">
+                    <a class="nav-link active" aria-current="page" style="cursor: pointer;" >Horario</a>
+                </li>
+                <li class="nav-item" routerLink="/usuario">
+                    <a class="nav-link active" aria-current="page" style="cursor: pointer;" >Usuario</a>
+                </li>
+                <li class="nav-item" routerLink="/mihorario">
+                    <a class="nav-link active" aria-current="page" style="cursor: pointer;" >Asistencia</a>
+                </li>-->
 
-          <li class="nav-item" >
-            <a class="nav-link active" (click)="cerrarSesion()"  aria-current="page" style="cursor: pointer;" >Cerrar Sesion</a>
-          </li>
-
-
-        </ul>
-
-        <!-- Agrega esta sección para mostrar el nombre del usuario -->
-      <div class="navbar-text">
-        <p class="mb-0">{{ nombreCompleto }}</p>
-      </div>
-       
-      </div>
+          </ul>
+        </div>
+      </nav>
     </div>
   </nav>
