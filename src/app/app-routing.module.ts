@@ -16,6 +16,7 @@ import { FormTipousuarioComponent } from './tipousuario/form-tipousuario/form-ti
 import { FormUsuarioComponent } from './usuario/form-usuario/form-usuario.component';
 import { guardsGuard } from './login/guards.guard';
 import { MisCursosComponent } from './asistencia/mis-cursos/mis-cursos.component';
+import { MisMarcacionesComponent } from './asistencia/mis-marcaciones/mis-marcaciones.component';
 
 const routes: Routes = [
 
@@ -127,8 +128,13 @@ const routes: Routes = [
     canActivate:[guardsGuard]
   },
   {
-    path:"login",
-    component:LoginPrincipalComponent,
+    path:"mihorario",
+    component:MisCursosComponent,
+    canActivate:[guardsGuard]
+  },
+  {
+    path:"mismarcaciones",
+    component:MisMarcacionesComponent,
   }
 
 ];

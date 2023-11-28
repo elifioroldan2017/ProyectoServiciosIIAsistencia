@@ -5,13 +5,15 @@ import { FormsModule } from '@angular/forms';
 import { MenuModule } from '../menu/menu.module';
 import { HttpClientModule } from '@angular/common/http';
 import { MisCursosComponent } from './mis-cursos/mis-cursos.component';
+import { MisMarcacionesComponent } from './mis-marcaciones/mis-marcaciones.component';
 
 
 
 @NgModule({
   declarations: [
     AsistenciaPrincipalComponent,
-    MisCursosComponent
+    MisCursosComponent,
+    MisMarcacionesComponent
   ],
   imports: [
     FormsModule,
