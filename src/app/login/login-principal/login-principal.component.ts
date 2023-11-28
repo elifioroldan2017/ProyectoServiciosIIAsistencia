@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./login-principal.component.css']
 })
 export class LoginPrincipalComponent {
+  mostrarContrasena: boolean = false;
 
+  toggleMostrarContrasena(): void {
+    this.mostrarContrasena = !this.mostrarContrasena;
+  }
 }
