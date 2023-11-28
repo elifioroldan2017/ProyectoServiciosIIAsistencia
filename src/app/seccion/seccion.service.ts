@@ -10,6 +10,7 @@ export class SeccionService {
   private _seccion:Seccion[]=[]
   totalLength:any;
   page:number=1;
+  nombreSeccion:string="";
 
   get secciones(){
     return [...this._seccion]

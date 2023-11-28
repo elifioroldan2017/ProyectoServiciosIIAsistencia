@@ -18,6 +18,15 @@ export class TablaUsuarioComponent {
     return this.usuarioService.usuarios
   }
 
+  get page(){
+    return this.usuarioService.page;
+  }
+
+  get totalLength(){
+    return this.usuarioService.totalLength;
+
+  }
+
    editar(idusuario:number){
     this.routes.navigate(["usuario/editar/"+idusuario])
   }

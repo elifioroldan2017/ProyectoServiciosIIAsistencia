@@ -10,6 +10,7 @@ export class UsuarioService {
   private _usuarios:Usuario[]=[]
   totalLength:any;
   page:number=1;
+  nombreUsuario:string=""
 
    get usuarios():Usuario[]{
     return [...this._usuarios]

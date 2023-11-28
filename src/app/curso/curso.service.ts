@@ -12,7 +12,7 @@ export class CursoService {
 
   private _carreras:Carrera[]=[ ]
 
-
+  nombreCurso:string=""
   private _cursos : Curso[]=[ ]
   totalLength:any;
   page:number=1;

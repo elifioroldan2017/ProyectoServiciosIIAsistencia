@@ -8,12 +8,21 @@ import { Router } from '@angular/router';
 })
 export class UsuarioPrincipalComponent {
 
+  nombreUsuario:string=""
   constructor(private routes:Router){
 
   }
   
   agregar(){
     this.routes.navigate(["usuario/agregar"])
+  }
+
+  buscarUsuario(){
+
+  }
+
+  limpiar(){
+    
   }
 
 }

@@ -16,6 +16,7 @@ export class PersonaService {
   private _tipos:Tipo[]=[]
 
   private _sexos:Sexo[]=[ ]
+  nombrePersona:string=""
 
   totalLength:any;
   page:number=1;

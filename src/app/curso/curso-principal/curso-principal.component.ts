@@ -11,14 +11,21 @@ export class CursoPrincipalComponent {
 
   nombreCurso:string=""
   constructor(private router:Router,private cursoService:CursoService ){
+    this.nombreCurso=this.cursoService.nombreCurso
 
   }
 
+  cambiar(event:any){
+    this.cursoService.nombreCurso= event.target.value;
+  }
+
   buscarCurso(){
-    if(this.nombreCurso==""){
+    this.cursoService.page=1
+    console.log("Valor "+this.cursoService.nombreCurso)
+    if(this.cursoService.nombreCurso==""){
       this.cursoService.listarCursos();
     }else{
-      this.cursoService.buscarCursos(this.nombreCurso)
+      this.cursoService.buscarCursos(this.cursoService.nombreCurso)
     }
   }
 
@@ -28,7 +35,9 @@ export class CursoPrincipalComponent {
   }
 
   limpiar(){
-
+    this.nombreCurso=""
+    this.cursoService.nombreCurso=""
+    this.cursoService.listarCursos()
   }
 
 
