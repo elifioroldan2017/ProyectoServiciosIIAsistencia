@@ -6,6 +6,8 @@ import { SeccionService } from 'src/app/seccion/seccion.service';
 import { PersonaService } from 'src/app/persona/persona.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Persona } from 'src/app/persona/interface/Persona';
+import Horario from '../interface/Horario';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-form-cursoseccion',
@@ -14,7 +16,12 @@ import { Persona } from 'src/app/persona/interface/Persona';
 })
 export class FormCursoseccionComponent {
   titulo:string=""
-
+  ohorario:Horario={
+    courseId:0,
+    sectionId:0,
+    teacherId:0,
+    students:[]
+  }
   constructor(private horarioService:CursoseccionalumnoService,
     private cursoService:CursoService,private seccionService:SeccionService,
     private personaService:PersonaService,private router:Router,
@@ -47,6 +54,15 @@ export class FormCursoseccionComponent {
 
   eliminar(opersona:Persona){
     this.horarioService.deleteAlumnoHorario(opersona)
+  }
+
+  guardar(){
+    var personas:number[] = this.horarioService.alumnosHorario.map(p=>p.personId)
+    this.ohorario.students= personas;
+    console.log(this.ohorario)
+    this.horarioService.guardarHorario(this.ohorario).subscribe(res=>{
+      Swal.fire('Exito!', 'Se  guardó correctamente', 'success');
+    })
   }
 
 

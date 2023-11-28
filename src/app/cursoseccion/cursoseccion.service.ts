@@ -3,6 +3,7 @@ import { CursoSeccion } from './interface/CursoSeccion';
 import { Persona } from '../persona/interface/Persona';
 import { HttpClient } from '@angular/common/http';
 import urlbase from '../constant';
+import Horario from './interface/Horario';
 
 @Injectable({
   providedIn: 'root'
@@ -48,6 +49,10 @@ export class CursoseccionalumnoService {
 
   deleteAlumnoHorario(opersona:Persona){
     this._alumnosAddHorario= this._alumnosAddHorario.filter(p=>p.personId!=opersona.personId)
+  }
+
+  guardarHorario(ohorario:Horario){
+    return this._http.post<Horario>(urlbase+"/schedules",ohorario);
   }
 
   listarAlumnos(){
