@@ -7,7 +7,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let sec of secciones">
+        <tr *ngFor="let sec of secciones  |paginate:{itemsPerPage:5,currentPage:page,totalItems:totalLength}">
             <td>{{sec.sectionName}}</td>
             <td>{{sec.sectionPeriod}}</td>
             <td>
@@ -26,3 +26,7 @@
         </tr>
     </tbody>
 </table>
+<div class="pagination">
+    <pagination-controls (pageChange)="cambiar($event)" ></pagination-controls>
+  </div>
+

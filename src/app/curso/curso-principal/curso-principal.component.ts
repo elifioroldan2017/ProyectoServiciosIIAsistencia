@@ -28,7 +28,7 @@ export class CursoPrincipalComponent {
   }
 
   limpiar(){
-    
+
   }
 
 

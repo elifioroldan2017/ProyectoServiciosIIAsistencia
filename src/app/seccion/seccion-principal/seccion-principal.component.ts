@@ -24,4 +24,8 @@ export class SeccionPrincipalComponent {
       this.seccionService.buscarSeccion(this.nombreSeccion)
     }
   }
+
+  limpiar(){
+    
+  }
 }

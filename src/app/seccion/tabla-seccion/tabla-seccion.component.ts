@@ -19,6 +19,15 @@ export class TablaSeccionComponent {
     return this.seccionService.secciones
   }
 
+  get page(){
+    return this.seccionService.page;
+  }
+
+  get totalLength(){
+    return this.seccionService.totalLength;
+
+  }
+
   editar(idseccion:number){
     this.router.navigate(["seccion/editar/"+idseccion])
 
