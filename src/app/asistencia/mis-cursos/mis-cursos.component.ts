@@ -11,7 +11,7 @@ export class MisCursosComponent {
   constructor(private router:Router){
 
   }
-  navegar(){
-    this.router.navigate([""])
+  navegar(idhorario:number){
+    this.router.navigate(["/asistencia/"+idhorario])
   }
 }
