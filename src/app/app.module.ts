@@ -12,12 +12,13 @@ import { LoginModule } from './login/login/login.module';
 import { TipousuarioModule } from './tipousuario/tipousuario.module';
 import { UsuarioModule } from './usuario/usuario.module';
 import { SeccionModule } from './seccion/seccion.module';
-import {HttpClientModule} from "@angular/common/http"
+import {HttpClientModule} from "@angular/common/http";
+import { MenuModule } from './menu/menu.module';
 @NgModule({
   declarations: [
     AppComponent,
     LoginPrincipalComponent,
-    FormLoginComponent
+    FormLoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,7 +30,8 @@ import {HttpClientModule} from "@angular/common/http"
     LoginModule,
     TipousuarioModule,
     UsuarioModule,
-    SeccionModule
+    SeccionModule,
+    MenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

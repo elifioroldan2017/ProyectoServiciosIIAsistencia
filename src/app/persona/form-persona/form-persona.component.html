@@ -1,127 +1,130 @@
-<h2 class="text-center text-dark">{{titulo}}</h2>
-<form (ngSubmit)="guardar()" #personaForm="ngForm">
-    <div class="mb-1">
-        <label>Nombre</label>
-        <input type="text" 
-            [(ngModel)]="persona.personName" 
-            name="personName" 
-            class="form-control" 
-            required
-            minlength="2"
-            maxlength="100"/>
-        <span class="form-text text-danger"
-            *ngIf="nombreInvalido()">
-            Por favor, sólo escriba letras. 2 como mínimo
-        </span>
-    </div>
-    <div>
-        <label>Apellido Paterno</label>
-        <input type="text" 
-            [(ngModel)]="persona.personLastname1" 
-            name="personLastname1" 
-            class="form-control" 
-            required
-            minlength="2"
-            maxlength="200"/>
-        <span class="form-text text-danger"
-            *ngIf="paternoInvalido()">
-            Por favor, sólo escriba letras. 2 como mínimo
-        </span>
-    </div>
-
-    <div>
-        <label>Apellido Materno</label>
-        <input type="text" 
-            [(ngModel)]="persona.personLastname2"  
-            name="personLastname2"  
-            class="form-control" 
-            required
-            minlength="2"
-            maxlength="200"/>
-        <span class="form-text text-danger"
-            *ngIf="maternoInvalido()">
-            Por favor, sólo escriba letras. 2 como mínimo
-        </span>
-    </div>
-
-    <div>
-        <label>Correo</label>
-        <input type="email" 
-            [(ngModel)]="persona.personEmail" 
-            name="personEmail"  
-            class="form-control" 
-            required
-            minlength="5"
-            maxlength="100"/>
-        <span class="form-text text-danger"
-            *ngIf="emailInvalido()">
-            Por favor, ingrese un formato valido de email
-        </span>
-    </div>
-
-    <div>
-        <label>Dirección</label>
-        <input type="text" 
-            [(ngModel)]="persona.personAddress" 
-            name="personAddress"  
-            class="form-control" 
-            required
-            maxlength="400"/>
-        <span class="form-text text-danger"
-            *ngIf="direccionInvalido()">
-            Por favor, sólo escriba la dirección
-        </span>
-    </div>
- 
-    <div>
-        <label>Tipo</label>
-        <select class="form-control" name="typeId" [(ngModel)]="persona.typeId">
-            <option value="0">--Seleccione--</option>
-            <option *ngFor="let tipo of tipos" [value]="tipo.typeId" >{{tipo.typeName}}</option>
-        </select>
-        <span class="form-text text-danger"
-            *ngIf="tipoInvalido()">
-            Por favor, seleccione un tipo 
-        </span>
-    </div>
- 
-    <div>
-        <label>Sexo</label>
-        <select class="form-control" name="sexId" [(ngModel)]="persona.sexId">
-            <option value="0">--Seleccione--</option>
-            <option *ngFor="let sexo of sexos" [value]="sexo.sexId" >{{sexo.sexDescription}}</option>
-        </select>
-        <span class="form-text text-danger"
-            *ngIf="sexoInvalido()">
-            Por favor, seleccione un sexo
-        </span>
-    </div>
-
- 
-
-    <div>
-        <label>Fecha Nacimiento</label>
-        <input type="date" 
-            name="personBirthdate" 
-            [(ngModel)]="persona.personBirthdate" 
-            class="form-control" 
-            required/>
-        <span class="form-text text-danger"
-            *ngIf="fechaInvalido()">
-            Por favor, la fecha de nacimiento no puede ser mayor a la de hoy
-        </span>
-    </div>
-
-    <div>
-        <label>Telefono celular</label>
-        <input type="number" name="personPhone" [(ngModel)]="persona.personPhone" class="form-control" />
-    </div>
-
-
-    <div class="mt-2 mb-2">
-        <button type="submit" class="btn btn-success m-1" [disabled]="personaForm.invalid">Guardar</button>
-        <button type="button" class="btn btn-danger" (click)="regresar()">Regresar</button>
-    </div>
-
-
-</form>
+<app-menu></app-menu>
+<div class="container">
+    <h2 class="text-center text-dark">{{titulo}}</h2>
+    <form (ngSubmit)="guardar()" #personaForm="ngForm">
+        <div class="mb-1">
+            <label>Nombre</label>
+            <input type="text" 
+                [(ngModel)]="persona.personName" 
+                name="personName" 
+                class="form-control" 
+                required
+                minlength="2"
+                maxlength="100"/>
+            <span class="form-text text-danger"
+                *ngIf="nombreInvalido()">
+                Por favor, sólo escriba letras. 2 como mínimo
+            </span>
+        </div>
+        <div>
+            <label>Apellido Paterno</label>
+            <input type="text" 
+                [(ngModel)]="persona.personLastname1" 
+                name="personLastname1" 
+                class="form-control" 
+                required
+                minlength="2"
+                maxlength="200"/>
+            <span class="form-text text-danger"
+                *ngIf="paternoInvalido()">
+                Por favor, sólo escriba letras. 2 como mínimo
+            </span>
+        </div>
+    
+        <div>
+            <label>Apellido Materno</label>
+            <input type="text" 
+                [(ngModel)]="persona.personLastname2"  
+                name="personLastname2"  
+                class="form-control" 
+                required
+                minlength="2"
+                maxlength="200"/>
+            <span class="form-text text-danger"
+                *ngIf="maternoInvalido()">
+                Por favor, sólo escriba letras. 2 como mínimo
+            </span>
+        </div>
+    
+        <div>
+            <label>Correo</label>
+            <input type="email" 
+                [(ngModel)]="persona.personEmail" 
+                name="personEmail"  
+                class="form-control" 
+                required
+                minlength="5"
+                maxlength="100"/>
+            <span class="form-text text-danger"
+                *ngIf="emailInvalido()">
+                Por favor, ingrese un formato valido de email
+            </span>
+        </div>
+    
+        <div>
+            <label>Dirección</label>
+            <input type="text" 
+                [(ngModel)]="persona.personAddress" 
+                name="personAddress"  
+                class="form-control" 
+                required
+                maxlength="400"/>
+            <span class="form-text text-danger"
+                *ngIf="direccionInvalido()">
+                Por favor, sólo escriba la dirección
+            </span>
+        </div>
+     
+        <div>
+            <label>Tipo</label>
+            <select class="form-control" name="typeId" [(ngModel)]="persona.typeId">
+                <option value="0">--Seleccione--</option>
+                <option *ngFor="let tipo of tipos" [value]="tipo.typeId" >{{tipo.typeName}}</option>
+            </select>
+            <span class="form-text text-danger"
+                *ngIf="tipoInvalido()">
+                Por favor, seleccione un tipo 
+            </span>
+        </div>
+     
+        <div>
+            <label>Sexo</label>
+            <select class="form-control" name="sexId" [(ngModel)]="persona.sexId">
+                <option value="0">--Seleccione--</option>
+                <option *ngFor="let sexo of sexos" [value]="sexo.sexId" >{{sexo.sexDescription}}</option>
+            </select>
+            <span class="form-text text-danger"
+                *ngIf="sexoInvalido()">
+                Por favor, seleccione un sexo
+            </span>
+        </div>
+    
+     
+    
+        <div>
+            <label>Fecha Nacimiento</label>
+            <input type="date" 
+                name="personBirthdate" 
+                [(ngModel)]="persona.personBirthdate" 
+                class="form-control" 
+                required/>
+            <span class="form-text text-danger"
+                *ngIf="fechaInvalido()">
+                Por favor, la fecha de nacimiento no puede ser mayor a la de hoy
+            </span>
+        </div>
+    
+        <div>
+            <label>Telefono celular</label>
+            <input type="number" name="personPhone" [(ngModel)]="persona.personPhone" class="form-control" />
+        </div>
+    
+    
+        <div class="mt-2 mb-2">
+            <button type="submit" class="btn btn-success m-1" [disabled]="personaForm.invalid">Guardar</button>
+            <button type="button" class="btn btn-danger" (click)="regresar()">Regresar</button>
+        </div>
+    
+    
+    </form>
+</div>

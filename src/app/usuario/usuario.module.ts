@@ -5,6 +5,8 @@ import { TablaUsuarioComponent } from './tabla-usuario/tabla-usuario.component';
 import { FormUsuarioComponent } from './form-usuario/form-usuario.component';
 import { FormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { LoginModule } from '../login/login/login.module';
+import { MenuModule } from '../menu/menu.module';
 
 
 
@@ -17,7 +19,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
   imports: [
     FormsModule,
     CommonModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    LoginModule,
+    MenuModule
   ]
 })
 export class UsuarioModule { }

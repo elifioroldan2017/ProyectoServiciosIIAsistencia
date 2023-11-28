@@ -37,6 +37,13 @@ export class UsuarioService {
    actualizarUsuario(ousuario:Usuario){
     return this._http.put<Usuario>(urlbase+"/user/",ousuario)
    }
+
+   buscarUsuarioPorName(name:string){
+     this._http.get<Usuario[]>(urlbase+"/user/username/"+name).subscribe(res=>{
+      this._usuarios=res;
+     })
+
+   }
   
   constructor(private _http:HttpClient) {
     this.listarUsuarios()

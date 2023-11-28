@@ -5,6 +5,7 @@ import { TablaPersonaComponent } from './tabla-persona/tabla-persona.component';
 import { FormPersonaComponent } from './form-persona/form-persona.component';
 import { FormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { MenuModule } from '../menu/menu.module';
 
 
 
@@ -17,7 +18,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
   imports: [
     FormsModule,
     CommonModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    MenuModule
   ]
 })
 export class PersonaModule { }

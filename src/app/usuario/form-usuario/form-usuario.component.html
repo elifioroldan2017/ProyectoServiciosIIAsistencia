@@ -1,34 +1,37 @@
-<h2 class="text-center text-dark">{{titulo}}</h2>
-<form (ngSubmit)="guardar()">
-    <div class="mb-1" *ngIf="usuario.userId==0" >
-        <label>Nombre Persona</label>
-        <select [(ngModel)]="usuario.personId" name="personId" class="form-control">
-            <option value="0">--Seleccione--</option>
-            <option *ngFor="let persona of personasList" [value]="persona.personId">{{persona.personName+ ' '+persona.personLastname1+ ' '+persona.personLastname2}}</option>
-        </select>
-    </div>
-    <div>
-        <label>Nombre Usuario</label>
-        <input [(ngModel)]="usuario.username" name="username" type="text" class="form-control" />
-    </div>
-
-    <div *ngIf="usuario.userId==0" >
-        <label>Contraseña</label>
-        <input [(ngModel)]="usuario.password" name="password" type="password" class="form-control" />
-    </div>
-
-    <div>
-        <label>Tipo Usuario</label>
-        <select [(ngModel)]="usuario.usertype" name="usertype" class="form-control">
-            <option value="0">--Seleccione--</option>
-            <option [value]="tipousuario.userTypeId" *ngFor="let tipousuario of tipousuarios">{{tipousuario.name}}</option>
-        </select>
-    </div>
-
-    <div class="mt-2 mb-2">
-        <button type="submit" class="btn btn-success m-1">Guardar</button>
-        <button type="button" class="btn btn-danger" (click)="regresar()">Regresar</button>
-    </div>
-
-
-</form>
+<app-menu></app-menu>
+<div class="container">
+    <h2 class="text-center text-dark">{{titulo}}</h2>
+    <form (ngSubmit)="guardar()">
+        <div class="mb-1" *ngIf="usuario.userId==0" >
+            <label>Nombre Persona</label>
+            <select [(ngModel)]="usuario.personId" name="personId" class="form-control">
+                <option value="0">--Seleccione--</option>
+                <option *ngFor="let persona of personasList" [value]="persona.personId">{{persona.personName+ ' '+persona.personLastname1+ ' '+persona.personLastname2}}</option>
+            </select>
+        </div>
+        <div>
+            <label>Nombre Usuario</label>
+            <input [(ngModel)]="usuario.username" name="username" type="text" class="form-control" />
+        </div>
+    
+        <div *ngIf="usuario.userId==0" >
+            <label>Contraseña</label>
+            <input [(ngModel)]="usuario.password" name="password" type="password" class="form-control" />
+        </div>
+    
+        <div>
+            <label>Tipo Usuario</label>
+            <select [(ngModel)]="usuario.usertype" name="usertype" class="form-control">
+                <option value="0">--Seleccione--</option>
+                <option [value]="tipousuario.userTypeId" *ngFor="let tipousuario of tipousuarios">{{tipousuario.name}}</option>
+            </select>
+        </div>
+    
+        <div class="mt-2 mb-2">
+            <button type="submit" class="btn btn-success m-1">Guardar</button>
+            <button type="button" class="btn btn-danger" (click)="regresar()">Regresar</button>
+        </div>
+    
+    
+    </form>
+</div>
