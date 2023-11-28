@@ -57,12 +57,33 @@ export class FormCursoseccionComponent {
   }
 
   guardar(){
-    var personas:number[] = this.horarioService.alumnosHorario.map(p=>p.personId)
-    this.ohorario.students= personas;
-    console.log(this.ohorario)
-    this.horarioService.guardarHorario(this.ohorario).subscribe(res=>{
-      Swal.fire('Exito!', 'Se  guardó correctamente', 'success');
-    })
+
+
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: 'Esta seguro de guardar los datos del horario?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si',
+      cancelButtonText:"No"
+    }).then((result) => {
+      if (result.isConfirmed) {
+
+        var personas:number[] = this.horarioService.alumnosHorario.map(p=>p.personId)
+        this.ohorario.students= personas;
+        console.log(this.ohorario)
+        this.horarioService.guardarHorario(this.ohorario).subscribe(res=>{
+          Swal.fire('Exito!', 'Se  guardó correctamente', 'success');
+          this.router.navigate(["horario"])
+          //this.horarioService.listarCursos();
+        })
+
+      }
+    });
+
+
   }
 
 
