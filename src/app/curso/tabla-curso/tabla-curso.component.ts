@@ -19,6 +19,15 @@ export class TablaCursoComponent {
     return this.cursoservice.cursos;
   }
 
+  get page(){
+    return this.cursoservice.page;
+  }
+
+  get totalLength(){
+    return this.cursoservice.totalLength;
+
+  }
+
   editar(idcurso:number){
     this.router.navigate(["curso/editar/"+idcurso])
   }

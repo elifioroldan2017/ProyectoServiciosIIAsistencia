@@ -27,5 +27,9 @@ export class CursoPrincipalComponent {
 
   }
 
+  limpiar(){
+    
+  }
+
 
 }
