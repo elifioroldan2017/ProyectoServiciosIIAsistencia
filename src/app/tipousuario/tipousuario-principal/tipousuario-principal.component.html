@@ -1,14 +1,18 @@
-<h2 class="text-dark text-center">Mantenimiento Tipo Usuario</h2>
+<app-menu></app-menu>
 
-<div class="d-flex justify-content-center">
-    <button class="btn btn-success m-2" (click)="nuevo()">Nuevo</button>
+<div class="container">
+    <h2 class="text-dark text-center">Mantenimiento Tipo Usuario</h2>
+
+    <div class="d-flex justify-content-center">
+        <button class="btn btn-success m-2" (click)="nuevo()">Nuevo</button>
+    </div>
+    <form (ngSubmit)="buscarTipoUsuario()" >
+        <div class="input-group mb-3 mt-3">
+            <input type="text" class="form-control"
+            [(ngModel)]="nombreTipoUsuario"  name="nombreTipoUsuario"
+            placeholder="Ingrese nombre tipo usuario" aria-label="Tipo Usuario" aria-describedby="button-addon2">
+            <button class="btn btn-outline-dark" type="submit" id="button-addon2">Buscar</button>
+         </div>
+    </form>
+    <app-tabla-tipousuario></app-tabla-tipousuario>
 </div>
-<form (ngSubmit)="buscarTipoUsuario()" >
-    <div class="input-group mb-3 mt-3">
-        <input type="text" class="form-control"
-        [(ngModel)]="nombreTipoUsuario"  name="nombreTipoUsuario"
-        placeholder="Ingrese nombre tipo usuario" aria-label="Tipo Usuario" aria-describedby="button-addon2">
-        <button class="btn btn-outline-dark" type="submit" id="button-addon2">Buscar</button>
-     </div>
-</form>
-<app-tabla-tipousuario></app-tabla-tipousuario>

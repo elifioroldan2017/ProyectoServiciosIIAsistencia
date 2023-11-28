@@ -4,6 +4,7 @@ import { TipousuarioPrincipalComponent } from './tipousuario-principal/tipousuar
 import { TablaTipousuarioComponent } from './tabla-tipousuario/tabla-tipousuario.component';
 import { FormTipousuarioComponent } from './form-tipousuario/form-tipousuario.component';
 import { FormsModule } from '@angular/forms';
+import { MenuModule } from '../menu/menu.module';
 
 
 
@@ -15,7 +16,8 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     FormsModule,
-    CommonModule
+    CommonModule,
+    MenuModule
   ]
 })
 export class TipousuarioModule { }

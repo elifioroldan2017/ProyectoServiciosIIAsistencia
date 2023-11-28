@@ -14,6 +14,7 @@ import { UsuarioModule } from './usuario/usuario.module';
 import { SeccionModule } from './seccion/seccion.module';
 import {HttpClientModule} from "@angular/common/http";
 import { MenuModule } from './menu/menu.module';
+import { AsistenciaModule } from './asistencia/asistencia.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +32,8 @@ import { MenuModule } from './menu/menu.module';
     TipousuarioModule,
     UsuarioModule,
     SeccionModule,
-    MenuModule
+    MenuModule,
+    AsistenciaModule
   ],
   providers: [],
   bootstrap: [AppComponent]

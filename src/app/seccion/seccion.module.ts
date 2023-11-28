@@ -5,6 +5,8 @@ import { TablaSeccionComponent } from './tabla-seccion/tabla-seccion.component';
 import { FormSeccionComponent } from './form-seccion/form-seccion.component';
 import { FormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { LoginModule } from '../login/login/login.module';
+import { MenuModule } from '../menu/menu.module';
 
 
 
@@ -17,7 +19,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
   imports: [
     FormsModule,
     CommonModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    MenuModule
   ]
 })
 export class SeccionModule { }

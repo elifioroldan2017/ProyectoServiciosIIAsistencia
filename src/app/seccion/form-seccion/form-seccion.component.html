@@ -1,18 +1,21 @@
-<h2 class="text-center text-dark">{{titulo}}</h2>
-<form (ngSubmit)="guardar()">
-    <div class="mb-1">
-        <label>Nombre Sección</label>
-        <input type="text" name="sectionName" [(ngModel)]="seccion.sectionName" class="form-control" />
-    </div>
-    <div>
-        <label>Numero Ciclo</label>
-        <input type="number" name="sectionPeriod" [(ngModel)]="seccion.sectionPeriod" class="form-control" />
-    </div>
-
-    <div class="mt-2 mb-2">
-        <button type="submit" class="btn btn-success m-1">Guardar</button>
-        <button type="button" class="btn btn-danger" (click)="regresar()">Regresar</button>
-    </div>
-
-
-</form>
+<app-menu></app-menu>
+<div class="container">
+    <h2 class="text-center text-dark">{{titulo}}</h2>
+    <form (ngSubmit)="guardar()">
+        <div class="mb-1">
+            <label>Nombre Sección</label>
+            <input type="text" name="sectionName" [(ngModel)]="seccion.sectionName" class="form-control" />
+        </div>
+        <div>
+            <label>Numero Ciclo</label>
+            <input type="number" name="sectionPeriod" [(ngModel)]="seccion.sectionPeriod" class="form-control" />
+        </div>
+    
+        <div class="mt-2 mb-2">
+            <button type="submit" class="btn btn-success m-1">Guardar</button>
+            <button type="button" class="btn btn-danger" (click)="regresar()">Regresar</button>
+        </div>
+    
+    
+    </form>
+</div>

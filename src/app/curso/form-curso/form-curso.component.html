@@ -1,26 +1,30 @@
-<h2 class="text-center text-dark">{{titulo}}</h2>
-<form (ngSubmit)="guardar()">
-    <div class="mb-1">
-        <label>Nombre Curso</label>
-        <input type="text" name="courseName" [(ngModel)]="curso.courseName" class="form-control" />
-    </div>
-    <div>
-        <label>Numero Creditos</label>
-        <input type="number" name="courseCredits" [(ngModel)]="curso.courseCredits" class="form-control" />
-    </div>
-    <div>
-        <label>Carrera</label>
-        <select class="form-control" name="careerId" [(ngModel)]="curso.careerId" >
-            <option value="0">--Seleccione--</option>
-            <option *ngFor="let carrera of carreras" [value]="carrera.careerId" >{{carrera.careerName}}</option>
-        </select>
-    </div>
+<app-menu></app-menu>
 
-
-    <div class="mt-2 mb-2">
-        <button type="submit" class="btn btn-success m-1">Guardar</button>
-        <button type="button" class="btn btn-danger" (click)="regresar()">Regresar</button>
-    </div>
-
-
-</form>
+<div class="container">
+    <h2 class="text-center text-dark">{{titulo}}</h2>
+    <form (ngSubmit)="guardar()">
+        <div class="mb-1">
+            <label>Nombre Curso</label>
+            <input type="text" name="courseName" [(ngModel)]="curso.courseName" class="form-control" />
+        </div>
+        <div>
+            <label>Numero Creditos</label>
+            <input type="number" name="courseCredits" [(ngModel)]="curso.courseCredits" class="form-control" />
+        </div>
+        <div>
+            <label>Carrera</label>
+            <select class="form-control" name="careerId" [(ngModel)]="curso.careerId" >
+                <option value="0">--Seleccione--</option>
+                <option *ngFor="let carrera of carreras" [value]="carrera.careerId" >{{carrera.careerName}}</option>
+            </select>
+        </div>
+    
+    
+        <div class="mt-2 mb-2">
+            <button type="submit" class="btn btn-success m-1">Guardar</button>
+            <button type="button" class="btn btn-danger" (click)="regresar()">Regresar</button>
+        </div>
+    
+    
+    </form>
+</div>

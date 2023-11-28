@@ -5,6 +5,7 @@ import { TablaCursoComponent } from './tabla-curso/tabla-curso.component';
 import { FormCursoComponent } from './form-curso/form-curso.component';
 import { FormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { MenuModule } from '../menu/menu.module';
 
 
 
@@ -17,7 +18,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
   imports: [
     FormsModule,
     CommonModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    MenuModule
   ]
 })
 export class CursoModule { }

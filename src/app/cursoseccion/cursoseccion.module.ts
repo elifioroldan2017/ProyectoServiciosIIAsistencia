@@ -5,6 +5,7 @@ import { TablaCursoseccionComponent } from './tabla-cursoseccion/tabla-cursosecc
 import { FormCursoseccionComponent } from './form-cursoseccional/form-cursoseccion.component';
 import { FormsModule } from '@angular/forms';
 import { ModalAlumnoComponent } from './modal-alumno/modal-alumno.component';
+import { MenuModule } from '../menu/menu.module';
 
 
 
@@ -17,7 +18,8 @@ import { ModalAlumnoComponent } from './modal-alumno/modal-alumno.component';
   ],
   imports: [
     FormsModule,
-    CommonModule
+    CommonModule,
+    MenuModule
   ]
 })
 export class CursoseccionModule { }
