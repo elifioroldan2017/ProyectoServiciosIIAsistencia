@@ -35,11 +35,10 @@ export class AsistenciaPrincipalComponent {
  
   grabar(){
     var data= this.usuarioService.obtenerUsuarioDesdeStorage()
-    this.asistencia.scheduleId= this.asistencia.scheduleId
+    this.asistencia.scheduleId= this.id
     this.asistencia.missing= this.personasMarcadas
     this.asistencia.userId = data.userId
 
-    alert(this.asistencia.missing)
     Swal.fire({
       title: '¿Estás seguro?',
       text: 'Esta seguro de guardar los datos del horario?',
@@ -51,7 +50,7 @@ export class AsistenciaPrincipalComponent {
       cancelButtonText:"No"
     }).then((result) => {
       if (result.isConfirmed) {
-
+        console.log(this.asistencia)
         this.asistenciaService.guardar(this.asistencia).subscribe(res=>{
           Swal.fire('Exito!', 'Se  guardó correctamente', 'success');
           this.router.navigate(["mihorario"])

@@ -22,7 +22,7 @@ export class AsistenciaService {
   }
 
   guardar(oasistencia:Asistencia){
-    return  this._http.post<Asistencia>(urlbase+"/asistencia",oasistencia);
+    return  this._http.post<Asistencia>(urlbase+"/attendances",oasistencia);
   }
 
   constructor(private _http:HttpClient) {

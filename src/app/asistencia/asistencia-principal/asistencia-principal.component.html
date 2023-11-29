@@ -5,7 +5,7 @@
         <div class="mb-3 row">
             <label for="inputPassword" class="col-sm-2 col-form-label">Titulo Clase</label>
             <div class="col-sm-10">
-              <input type="text" [value]="asistencia.title" class="form-control" id="inputPassword">
+              <input type="text" name="title" [(ngModel)]="asistencia.title" class="form-control" id="inputPassword">
             </div>
           </div>
           <table class="table">
