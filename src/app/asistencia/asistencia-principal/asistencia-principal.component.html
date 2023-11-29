@@ -1,32 +1,36 @@
 <app-menu></app-menu>
 <div class="container mt-4">
-    <div class="mb-3 row">
-        <label for="inputPassword" class="col-sm-2 col-form-label">Titulo Clase</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" id="inputPassword">
-        </div>
-      </div>
-      <table class="table">
-        <thead>
-            <tr>
-                <th>Inasistencia</th>
-                <th>Codigo</th>
-                <th>Apellidos y Nombres</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let persona of personas">
-                <td><input type="checkbox" /></td>
-                <td>{{persona.personEmail}}</td>
-                <td>{{persona.personName+' '+persona.personLastname1+' '+persona.personLastname2}}</td>
-            </tr>
-
-        </tbody>
-      </table>
-      <div class="mt-5">
-        <button class="btn btn-primary" (click)="grabar()">Grabar</button>&nbsp;
-        <button class="btn btn-danger" (click)="regresar()">Cancelar</button>
-      </div>
+    <form  (ngSubmit)="grabar()" >
+        
+        <div class="mb-3 row">
+            <label for="inputPassword" class="col-sm-2 col-form-label">Titulo Clase</label>
+            <div class="col-sm-10">
+              <input type="text" [value]="asistencia.title" class="form-control" id="inputPassword">
+            </div>
+          </div>
+          <table class="table">
+            <thead>
+                <tr>
+                    <th>Inasistencia</th>
+                    <th>Codigo</th>
+                    <th>Apellidos y Nombres</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let persona of personas">
+                    <td><input type="checkbox" (change)="toggleCheckbox(persona.id)" /></td>
+                    <td>{{persona.personEmail}}</td>
+                    <td>{{persona.personName+' '+persona.personLastname1+' '+persona.personLastname2}}</td>
+                </tr>
+    
+            </tbody>
+          </table>
+          <div class="mt-5">
+            <button class="btn btn-primary" (click)="grabar()">Grabar</button>&nbsp;
+            <button class="btn btn-danger" (click)="regresar()">Cancelar</button>
+          </div>
+    
+    </form>
 
 
 </div>
