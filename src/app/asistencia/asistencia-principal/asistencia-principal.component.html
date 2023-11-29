@@ -18,7 +18,7 @@
             </thead>
             <tbody>
                 <tr *ngFor="let persona of personas">
-                    <td><input type="checkbox" (change)="toggleCheckbox(persona.id)" /></td>
+                    <td><input type="checkbox" (change)="toggleCheckbox(persona.studentId)" /></td>
                     <td>{{persona.personEmail}}</td>
                     <td>{{persona.personName+' '+persona.personLastname1+' '+persona.personLastname2}}</td>
                 </tr>

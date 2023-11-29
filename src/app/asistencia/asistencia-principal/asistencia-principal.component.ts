@@ -38,7 +38,7 @@ export class AsistenciaPrincipalComponent {
     this.asistencia.scheduleId= this.id
     this.asistencia.missing= this.personasMarcadas
     this.asistencia.userId = data.userId
-
+    console.log(this.asistencia)
     Swal.fire({
       title: '¿Estás seguro?',
       text: 'Esta seguro de guardar los datos del horario?',
