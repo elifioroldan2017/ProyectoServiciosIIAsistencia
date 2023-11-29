@@ -58,9 +58,7 @@ export class CursoseccionalumnoService {
   }
 
   listarAlumnos(){
-    this._http.get<Persona[]>(urlbase+"/person/persontype/2").subscribe(res=>{
-      this._alumnos=res;
-    })
+   return this._http.get<Persona[]>(urlbase+"/person/persontype/2")
   }
 
   listarProfesores(){
@@ -68,7 +66,7 @@ export class CursoseccionalumnoService {
   }
 
   listarHorario(){
-    return this._http.get<HorarioList[]>(urlbase+"/schedules/all")
+    return this._http.get<HorarioList[]>(urlbase+"/schedules")
    }
  
 

@@ -39,7 +39,7 @@ export class AsistenciaPrincipalComponent {
     this.asistencia.missing= this.personasMarcadas
     this.asistencia.userId = data.userId
 
-
+    alert(this.asistencia.missing)
     Swal.fire({
       title: '¿Estás seguro?',
       text: 'Esta seguro de guardar los datos del horario?',

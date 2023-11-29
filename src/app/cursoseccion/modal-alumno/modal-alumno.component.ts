@@ -9,14 +9,18 @@ import Swal from 'sweetalert2';
   styleUrls: ['./modal-alumno.component.css']
 })
 export class ModalAlumnoComponent {
-
+  alumnos:Persona[]=[]
   constructor(private horarioService:CursoseccionalumnoService,private el: ElementRef){
-
+    this.listarAlumnos()
   }
 
-  get alumnos(){
-    return this.horarioService.alumnos
+  listarAlumnos(){
+    this.horarioService.listarAlumnos().subscribe(res=>{
+      this.alumnos=res
+    })
   }
+
+ 
 
   agregar(opersona:Persona){
     console.log(opersona)
