@@ -37,7 +37,7 @@ export class LoginPrincipalComponent {
       Swal.fire('Bienvenido!', 'Bievenido al Sistema '+nombrecompleto, 'success');
       this.servicioLogin.oUser=res;
       this.usuarioService.guardarUsuarioEnStorage(this.servicioLogin.oUser)
-      this.router.navigate(["/persona"])
+      this.router.navigate(["/inicio"])
     },(error) => {
       Swal.fire('Error', 'Usuario y/o contraseña incorrecta', 'error');
     })

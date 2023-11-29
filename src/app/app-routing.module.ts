@@ -17,6 +17,7 @@ import { FormUsuarioComponent } from './usuario/form-usuario/form-usuario.compon
 import { guardsGuard } from './login/guards.guard';
 import { MisCursosComponent } from './asistencia/mis-cursos/mis-cursos.component';
 import { MisMarcacionesComponent } from './asistencia/mis-marcaciones/mis-marcaciones.component';
+import { PaginaPrincipalAppComponent } from './menu/pagina-principal-app/pagina-principal-app.component';
 
 const routes: Routes = [
 
@@ -75,7 +76,7 @@ const routes: Routes = [
   },
   {
     path:"horario",
-    component:MisCursosComponent,
+    component:CursoseccionPrincipalComponent,
     canActivate:[guardsGuard]
   },
   {
@@ -125,6 +126,11 @@ const routes: Routes = [
   },  {
     path:"mihorario",
     component:MisCursosComponent,
+    canActivate:[guardsGuard]
+  },
+  {
+    path:"inicio",
+    component:PaginaPrincipalAppComponent,
     canActivate:[guardsGuard]
   },
   {
