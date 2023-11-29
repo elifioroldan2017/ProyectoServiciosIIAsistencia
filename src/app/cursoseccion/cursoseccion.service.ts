@@ -41,6 +41,10 @@ export class CursoseccionalumnoService {
     return [...this._alumnosAddHorario]
   }
 
+  resetear(){
+    this._alumnosAddHorario=[]
+  }
+
   get profesores():Persona[]{
     return [...this._profesores]
   }

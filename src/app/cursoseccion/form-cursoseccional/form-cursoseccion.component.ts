@@ -28,6 +28,7 @@ export class FormCursoseccionComponent {
     private personaService:PersonaService,private router:Router,
     private activateRoute:ActivatedRoute){
       this.listarProfesores()
+      this.horarioService.resetear()
       var id= activateRoute.snapshot.params["id"]
       if(id==undefined) this.titulo="Agregar Horario"
       else this.titulo="Editar Horario"
