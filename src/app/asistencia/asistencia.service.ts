@@ -17,7 +17,7 @@ export class AsistenciaService {
   }
 
   listarDetalleHorarioAlumnos(idhorario:number){
-    return this._http.get<PersonaDetalle[]>(urlbase+"/schedules/detail/"+idhorario);
+    return this._http.get<PersonaDetalle[]>(urlbase+"/schedules/"+idhorario);
 
   }
 
