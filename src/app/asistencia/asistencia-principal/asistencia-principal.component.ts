@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import PersonaDetalle from '../interface/PersonaDetalle';
+import { AsistenciaService } from '../asistencia.service';
 
 @Component({
   selector: 'app-asistencia-principal',
@@ -7,9 +9,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./asistencia-principal.component.css']
 })
 export class AsistenciaPrincipalComponent {
- 
-  constructor(private router:Router){
+  personas:PersonaDetalle[]=[]
+  constructor(private router:Router,private asistenciaService:AsistenciaService,private activateRoute:ActivatedRoute){
+    var id= activateRoute.snapshot.params["id"]
+    this. listar(id)
+  }
 
+  listar(id:number){
+    this.asistenciaService.listarDetalleHorarioAlumnos(id).subscribe(res=>{
+      this.personas=res;
+    })
   }
  
   grabar(){

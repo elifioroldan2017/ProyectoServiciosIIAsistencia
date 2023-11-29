@@ -15,21 +15,12 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
+            <tr *ngFor="let persona of personas">
                 <td><input type="checkbox" /></td>
-                <td>72722415</td>
-                <td>Elifio Roldan Huayllasco</td>
+                <td>{{persona.personEmail}}</td>
+                <td>{{persona.personName+' '+persona.personLastname1+' '+persona.personLastname2}}</td>
             </tr>
-            <tr>
-                <td><input type="checkbox" /></td>
-                <td>79852625</td>
-                <td>Felix Torres Terreros</td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" /></td>
-                <td>74785856</td>
-                <td>Hugo Pastor Vasquez</td>
-            </tr>
+
         </tbody>
       </table>
       <div class="mt-5">

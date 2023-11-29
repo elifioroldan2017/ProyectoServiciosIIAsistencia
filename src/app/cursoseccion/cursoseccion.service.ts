@@ -4,6 +4,7 @@ import { Persona } from '../persona/interface/Persona';
 import { HttpClient } from '@angular/common/http';
 import urlbase from '../constant';
 import Horario from './interface/Horario';
+import { HorarioList } from './interface/HorarioList';
 
 @Injectable({
   providedIn: 'root'
@@ -65,6 +66,11 @@ export class CursoseccionalumnoService {
   listarProfesores(){
    return this._http.get<Persona[]>(urlbase+"/person/persontype/1")
   }
+
+  listarHorario(){
+    return this._http.get<HorarioList[]>(urlbase+"/schedules/all")
+   }
+ 
 
 
   
