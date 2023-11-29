@@ -54,7 +54,9 @@ export class AsistenciaPrincipalComponent {
         this.asistenciaService.guardar(this.asistencia).subscribe(res=>{
           Swal.fire('Exito!', 'Se  guardó correctamente', 'success');
           this.router.navigate(["mihorario"])
-        })
+        },(err)=>{
+          Swal.fire('Ocurrio un error', err.error, 'error');
+       })
 
       }
     });

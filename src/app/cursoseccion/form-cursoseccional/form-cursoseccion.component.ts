@@ -84,7 +84,9 @@ export class FormCursoseccionComponent {
           Swal.fire('Exito!', 'Se  guardó correctamente', 'success');
           this.router.navigate(["horario"])
           //this.horarioService.listarCursos();
-        })
+        },(err)=>{
+          Swal.fire('Ocurrio un error', err.error, 'error');
+       })
 
       }
     });

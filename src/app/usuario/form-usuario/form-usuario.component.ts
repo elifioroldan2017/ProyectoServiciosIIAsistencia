@@ -73,13 +73,17 @@ export class FormUsuarioComponent {
               this.routes.navigate(["usuario"])
               Swal.fire('Exito!', 'Se  guardó los cambios correctamente', 'success');
               this.usuarioService.listarUsuarios();
-            })
+            },(err)=>{
+              Swal.fire('Ocurrio un error', err.error, 'error');
+           })
           }else{
             this.usuarioService.actualizarUsuario(this.usuario).subscribe(res=>{
               Swal.fire('Exito!', 'Se  actualizó los cambios correctamente', 'success');
               this.routes.navigate(["usuario"])
               this.usuarioService.listarUsuarios();
-            })
+            },(err)=>{
+              Swal.fire('Ocurrio un error', err.error, 'error');
+           })
           } 
 
       }

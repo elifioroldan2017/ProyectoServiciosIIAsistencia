@@ -49,13 +49,17 @@ export class FormSeccionComponent {
               Swal.fire('Exito!', 'Se  guardó los cambios correctamente', 'success');
               this.router.navigate(["seccion"])
               this.seccionService.listarSeccion();
-            })
+            },(err)=>{
+              Swal.fire('Ocurrio un error', err.error, 'error');
+           })
           }else{
           this.seccionService.actualizarSeccion(this.seccion).subscribe(res=>{
             Swal.fire('Exito!', 'Se actualizó los cambios correctamente', 'success');
             this.router.navigate(["seccion"])
               this.seccionService.listarSeccion();
-            })
+            },(err)=>{
+              Swal.fire('Ocurrio un error', err.error, 'error');
+           })
           }     
 
       }

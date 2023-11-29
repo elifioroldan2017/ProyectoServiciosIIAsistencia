@@ -57,13 +57,17 @@ export class FormCursoComponent {
             Swal.fire('Exito!', 'Se  guardó los cambios correctamente', 'success');
             this.router.navigate(["curso"])
             this.cursoService.listarCursos();
-          })
+          },(err)=>{
+            Swal.fire('Ocurrio un error', err.error, 'error');
+         })
         }else{
           this.cursoService.actualizarCurso(this.curso).subscribe(res=>{
             Swal.fire('Exito!', 'Se  actualizó los cambios correctamente', 'success');
             this.router.navigate(["curso"])
             this.cursoService.listarCursos();
-          })
+          },(err)=>{
+            Swal.fire('Ocurrio un error', err.error, 'error');
+         })
         }
 
       }

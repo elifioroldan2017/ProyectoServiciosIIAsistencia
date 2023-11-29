@@ -133,7 +133,9 @@ export class FormPersonaComponent {
       this.titulo="Editar Persona"
       this.personaService.obtenerPersona(Number(id)).subscribe(res=>{
         this.persona=res;
-      })
+      },(err)=>{
+        Swal.fire('Ocurrio un error', err.error, 'error');
+     })
     }
   }
 
