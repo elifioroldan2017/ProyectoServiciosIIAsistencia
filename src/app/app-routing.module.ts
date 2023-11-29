@@ -75,7 +75,7 @@ const routes: Routes = [
   },
   {
     path:"horario",
-    component:CursoseccionPrincipalComponent,
+    component:MisCursosComponent,
     canActivate:[guardsGuard]
   },
   {

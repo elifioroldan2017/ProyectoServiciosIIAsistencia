@@ -24,7 +24,6 @@ export class SeccionPrincipalComponent {
 
   buscarSeccion(){
     this.seccionService.page=1
-
     if( this.seccionService.nombreSeccion==""){
       this.seccionService.listarSeccion()
     }else{
