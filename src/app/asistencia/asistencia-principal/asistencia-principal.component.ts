@@ -4,6 +4,7 @@ import PersonaDetalle from '../interface/PersonaDetalle';
 import { AsistenciaService } from '../asistencia.service';
 import Asistencia from '../interface/Asistencia';
 import { UsuarioService } from 'src/app/usuario/usuario.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-asistencia-principal',
@@ -38,7 +39,28 @@ export class AsistenciaPrincipalComponent {
     this.asistencia.missing= this.personasMarcadas
     this.asistencia.userId = data.userId
 
-    
+
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: 'Esta seguro de guardar los datos del horario?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si',
+      cancelButtonText:"No"
+    }).then((result) => {
+      if (result.isConfirmed) {
+
+        this.asistenciaService.guardar(this.asistencia).subscribe(res=>{
+          Swal.fire('Exito!', 'Se  guardó correctamente', 'success');
+          this.router.navigate(["mihorario"])
+        })
+
+      }
+    });
+
+
 
   }
   regresar(){
