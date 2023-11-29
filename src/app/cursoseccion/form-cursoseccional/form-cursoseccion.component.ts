@@ -22,11 +22,12 @@ export class FormCursoseccionComponent {
     teacherId:0,
     students:[]
   }
+  profesores:Persona[]=[]
   constructor(private horarioService:CursoseccionalumnoService,
     private cursoService:CursoService,private seccionService:SeccionService,
     private personaService:PersonaService,private router:Router,
     private activateRoute:ActivatedRoute){
-
+      this.listarProfesores()
       var id= activateRoute.snapshot.params["id"]
       if(id==undefined) this.titulo="Agregar Horario"
       else this.titulo="Editar Horario"
@@ -36,9 +37,13 @@ export class FormCursoseccionComponent {
     return this.cursoService.cursos
   }
 
-  get profesores(){
-    return this.horarioService.profesores
+  listarProfesores(){
+    this.horarioService.listarProfesores().subscribe(res=>{
+      this.profesores=res
+    })
   }
+
+  
 
   regresar(){
     this.router.navigate(["horario"])

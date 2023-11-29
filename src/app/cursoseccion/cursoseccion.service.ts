@@ -26,7 +26,8 @@ export class CursoseccionalumnoService {
       nombreseccion:"T2PM",
     }
   ]
-
+  totalLength:any;
+  page:number=1;
   get horarios():CursoSeccion[]{
     return [...this._horarios]
   }
@@ -62,10 +63,11 @@ export class CursoseccionalumnoService {
   }
 
   listarProfesores(){
-    this._http.get<Persona[]>(urlbase+"/person/persontype/1").subscribe(res=>{
-      this._profesores=res;
-    })
+   return this._http.get<Persona[]>(urlbase+"/person/persontype/1")
   }
+
+
+  
 
   constructor(private _http:HttpClient) { 
     this.listarAlumnos()

@@ -8,7 +8,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let curseccion of cursoSecciones">
+        <tr *ngFor="let curseccion of cursoSecciones |paginate:{itemsPerPage:5,currentPage:page,totalItems:totalLength}">
             <td>{{curseccion.nombrecurso}}</td>
             <td>{{curseccion.nombreseccion}}</td>
             <td>{{curseccion.nombreprofesor}}</td>
@@ -28,3 +28,6 @@
         </tr>
     </tbody>
 </table>
+<div class="pagination">
+    <pagination-controls (pageChange)="cambiar($event)" ></pagination-controls>
+  </div>

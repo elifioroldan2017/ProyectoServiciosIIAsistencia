@@ -25,4 +25,17 @@ export class TablaCursoseccionComponent {
 
   }
 
+  get page(){
+    return this.cursoSeccionService.page;
+  }
+
+  get totalLength(){
+    return this.cursoSeccionService.totalLength;
+
+  }
+
+  cambiar(event:any){
+    this.cursoSeccionService.page=event
+  }
+
 }

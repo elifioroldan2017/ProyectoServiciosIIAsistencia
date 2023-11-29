@@ -4,6 +4,7 @@ export default interface UserLogin {
     accessToken: string
     tokenType: string
     userId: number
+    idperson:number
     username: string
     name: string
     lastname1: string

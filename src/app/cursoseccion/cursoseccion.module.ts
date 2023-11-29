@@ -6,6 +6,7 @@ import { FormCursoseccionComponent } from './form-cursoseccional/form-cursosecci
 import { FormsModule } from '@angular/forms';
 import { ModalAlumnoComponent } from './modal-alumno/modal-alumno.component';
 import { MenuModule } from '../menu/menu.module';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 
@@ -19,7 +20,8 @@ import { MenuModule } from '../menu/menu.module';
   imports: [
     FormsModule,
     CommonModule,
-    MenuModule
+    MenuModule,
+    NgxPaginationModule
   ]
 })
 export class CursoseccionModule { }

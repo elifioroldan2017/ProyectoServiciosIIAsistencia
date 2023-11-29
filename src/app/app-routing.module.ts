@@ -106,12 +106,12 @@ const routes: Routes = [
   {
     path:"usuario",
     component:UsuarioPrincipalComponent,
-   // canActivate:[guardsGuard]
+    canActivate:[guardsGuard]
   },
   {
     path:"usuario/agregar",
     component:FormUsuarioComponent,
-    //canActivate:[guardsGuard]
+    canActivate:[guardsGuard]
   },
   {
     path:"usuario/editar/:id",
@@ -135,6 +135,7 @@ const routes: Routes = [
   {
     path:"mismarcaciones",
     component:MisMarcacionesComponent,
+    canActivate:[guardsGuard]
   }
 
 ];
