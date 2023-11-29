@@ -6,8 +6,8 @@
           </svg></button>
     </div>
     <form (ngSubmit)="buscarPersona()" >
-        <div class="input-group mb-3 mt-3">
-            <input type="text" class="form-control"
+        <div class="input-group mb-3 mt-3"> 
+            <input type="text" class="form-control" (keyup)="cambiar($event)"
             [(ngModel)]="nombrePersona"  name="nombrePersona"
             placeholder="Ingrese nombre de la persona" aria-label="Nombre Persona" aria-describedby="button-addon2">
             <button class="btn btn-outline-primary" type="submit" id="button-addon2">Buscar</button>

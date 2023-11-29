@@ -13,20 +13,28 @@ export class PersonaPrincipalComponent {
 
   }
 
+  cambiar(event:any){
+    this.personaService.nombrePersona= event.target.value;
+  }
+
   nuevo(){
    this.router.navigate(["/persona/agregar"])
   }
 
   buscarPersona(){
-    if(this.nombrePersona==""){
+    this.personaService.page=1
+
+    if(this.personaService.nombrePersona==""){
       this.personaService.listarPersonas();
     }else{
-      this.personaService.buscarPersonas(this.nombrePersona)
+      this.personaService.buscarPersonas(this.personaService.nombrePersona)
     }
   }
 
   limpiar(){
-    
+    this.nombrePersona=""
+    this.personaService.nombrePersona=""
+    this.personaService.listarPersonas()
   }
 
 }
