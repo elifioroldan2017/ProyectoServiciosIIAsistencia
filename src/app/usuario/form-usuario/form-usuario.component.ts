@@ -7,6 +7,8 @@ import { Usuario } from '../interface/Usuario';
 import { UsuarioService } from '../usuario.service';
 import { Persona } from 'src/app/persona/interface/Persona';
 import Swal from 'sweetalert2';
+import Correo from 'src/app/login/interface/Correo';
+import { LoginService } from 'src/app/login/login.service';
 @Component({
   selector: 'app-form-usuario',
   templateUrl: './form-usuario.component.html',
@@ -24,7 +26,7 @@ export class FormUsuarioComponent {
     active: ""
   }
   constructor(private tipousuarioService:TipousuarioService,private personaService:PersonaService,private routes:Router ,private activateRoute:ActivatedRoute,
-    private usuarioService:UsuarioService){
+    private usuarioService:UsuarioService,private loginService:LoginService){
       var param=this.activateRoute.snapshot.params["id"]
       if(param==undefined) {
         this.titulo="Nuevo Usuario"
@@ -73,6 +75,42 @@ export class FormUsuarioComponent {
               this.routes.navigate(["usuario"])
               Swal.fire('Exito!', 'Se  guardó los cambios correctamente', 'success');
               this.usuarioService.listarUsuarios();
+
+              var objusu=this.personasList.filter(p=>p.personId==this.usuario.personId)[0];
+              console.log(objusu)
+              var nombrecompleto= objusu.personName+" "+objusu.personLastname1+" "+objusu.personLastname2
+              const datosParaEnviar:Correo = {
+                correosAEnviar: [objusu.personEmail],
+                asunto: 'Bienvenido '+nombrecompleto+" al sistema de marcaciones de cibertec",
+                contenido: `
+                Estimado ${nombrecompleto},
+                
+                ¡Bienvenido al Sistema de Marcaciones de Cibertec! Estamos emocionados de tenerte como parte de nuestra comunidad. A continuación, encontrarás información importante para comenzar: <br><br>
+                
+                Nombre de Usuario: ${this.usuario.username}  <br>
+                Fecha y Hora de Registro: ${new Date().toLocaleDateString()} <br>  <br>
+                
+                
+                Si tienes alguna pregunta o necesitas asistencia, no dudes en ponerte en contacto con nuestro equipo de soporte. ¡Estamos aquí para ayudarte! <br>
+                
+                Gracias por utilizar el Sistema de Marcaciones de Cibertec. ¡Esperamos que tengas una experiencia excelente! <br>
+                
+                Atentamente, <br>
+                El Equipo de Administración de Marcaciones de Cibertec
+
+                `, 
+
+          
+              };
+
+              this.loginService.enviarCorreo(datosParaEnviar).subscribe(res=>{
+                  console.error('Se envio el correo');
+                },               
+               error => {
+                  console.error('Error en la solicitud:', error);
+                }
+               )
+              
             },(err)=>{
               Swal.fire('Ocurrio un error', err.error, 'error');
            })
